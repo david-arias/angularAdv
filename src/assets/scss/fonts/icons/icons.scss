@@ -1,0 +1,48 @@
+/*------------------------
+	icons
+-------------------------*/
+@function unicode($str) {
+  @return unquote("\"\\#{$str}\"");
+}
+
+$ia-arrow: unicode(ea01);
+$ia-config: unicode(ea02);
+$ia-gplus: unicode(ea03);
+$ia-logout: unicode(ea04);
+$ia-mssg: unicode(ea05);
+$ia-noti: unicode(ea06);
+$ia-profile: unicode(ea07);
+$ia-search: unicode(ea08);
+
+.ia-arrow::before {
+  content: $ia-arrow;
+}
+
+.ia-config::before {
+  content: $ia-config;
+}
+
+.ia-gplus::before {
+  content: $ia-gplus;
+}
+
+.ia-logout::before {
+  content: $ia-logout;
+}
+
+.ia-mssg::before {
+  content: $ia-mssg;
+}
+
+.ia-noti::before {
+  content: $ia-noti;
+}
+
+.ia-profile::before {
+  content: $ia-profile;
+}
+
+.ia-search::before {
+  content: $ia-search;
+}
+

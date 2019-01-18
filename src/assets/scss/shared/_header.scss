@@ -1,0 +1,452 @@
+
+.topbar {
+     position: fixed;
+     width: 100%;
+     top: 0;
+     left: 0;
+
+     z-index: 5;
+
+     .navbar {
+          background: white;
+          height: $topBarHeight;
+          box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+          display: flex;
+
+          .navbarHeader {
+               width: $sideBarWidth;
+
+               @include transitioanAll(0.3s);
+
+               .navbar-brand {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 0 0 0 10px;
+                    height: $topBarHeight;
+
+                    b {
+                         img {
+                              width: calc( #{$topBarHeight} - 10px );
+                              height: auto;;
+                         }  
+                    }
+                    span {
+                         img {
+                              height: calc( #{$topBarHeight} - 10px );
+                              width: auto;
+                         }
+                    }
+               }
+          }
+
+          .navbarItems {
+
+               display: flex;
+               justify-content: space-between;
+               width: calc( 100% - #{$sideBarWidth});
+
+               .navbar-collapse {
+                    a {
+                         height: 70px;
+                         padding: 10px;
+                         display: flex;
+                         align-items: center;
+                         justify-content: center;
+                         background: white;
+                         width: 60px;
+
+                         i {
+                              font-size: 0;
+                              width: 20px;
+                              height: 2px;
+                              background: $grey;
+                              position: relative;
+                              @include transitioanAll(0.3s);
+                              
+                              &:before {
+                                   background: $grey;
+                                   content: "";
+                                   width: 20px;
+                                   height: 2px;
+                                   position: absolute;
+                                   top: -6px;
+                                   left: 0;
+                                   @include transitioanAll(0.3s);
+                              }
+                              &:after {
+                                   background: $grey;
+                                   content: "";
+                                   width: 20px;
+                                   height: 2px;
+                                   position: absolute;
+                                   top: 6px;
+                                   left: 0;
+                                   @include transitioanAll(0.3s);
+                              }
+                         }
+                    }
+               }
+               
+               .navbar-nav {
+                    padding: 0 10px 0 0;
+
+                    ul {
+                         display: flex;
+
+                         li {
+                              position: relative;
+
+                              a {
+                                   height: 70px;
+                                   padding: 10px;
+                                   display: flex;
+                                   align-items: center;
+                                   justify-content: center;
+                                   background: white;
+                                   width: 50px;
+                                   
+                                   .ia {
+                                        font-size: 25px;
+                                        
+                                        &.ia-noti,
+                                        &.ia-mssg {
+                                             font-size: 30px;
+                                        }
+                                   }
+
+                                   &.avatarWrap {
+                                        width: 70px;
+
+                                        b.avatar {
+                                             width: 40px;
+                                             height: 40px;
+                                             border-radius: 50%;
+                                             overflow: hidden;
+     
+                                             img {
+                                                  width: 100%;
+                                                  height: auto;
+                                             }
+                                        }
+                                   }
+
+                              }
+
+                              .avatarMenu {
+                                   position: absolute;
+                                   right: 0;
+                                   top: calc(#{$topBarHeight} + 10px);
+                                   background: white;
+                                   border-radius: 5px;
+                                   overflow: auto;
+                                   width: 300px;
+                                   box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+
+                                   .top {
+                                        display: flex;
+                                        align-items: center;
+                                        padding: 10px;
+                                        border-bottom: thin solid $bg;
+
+                                        .avatar {
+                                             width: 80px;
+                                             height: 80px;
+                                             overflow: hidden;
+                                             border-radius: 10px;
+                                             margin: 0 10px 0 0;
+
+                                             img {
+                                                  width: 100%;
+                                                  height: auto;
+                                             }
+                                        }
+                                        .info {
+                                             .name {
+                                                  @include mainTypo_bd();
+                                                  font-size: 18px;
+                                                  margin: 0 0 5px 0;
+                                             }
+                                        }
+                                   }
+                                   .menu {
+                                        ul {
+                                             display: block;
+                                             border-bottom: thin solid $bg;
+
+                                             li {
+                                                  a {
+                                                       width: 100%;
+
+                                                       justify-content: flex-start;
+                                                       height: auto;
+                                                       padding: 15px 20px;
+
+                                                       i.ia {
+                                                            margin: 0 5px 0 0;
+                                                       }
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+
+                              .mssgsMenu {
+                                   position: absolute;
+                                   right: 0;
+                                   top: calc(#{$topBarHeight} + 10px);
+                                   background: white;
+                                   border-radius: 5px;
+                                   overflow: auto;
+                                   width: 300px;
+                                   box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+
+                                   .top {
+                                        text-align: center;
+                                        padding: 15px 10px;
+
+                                        @include mainTypo_bd();
+                                   }
+
+                                   .mssgItems {
+                                        ul {
+                                             display: block;
+                                             height: 230px;
+                                             overflow: scroll;
+
+                                             li {
+                                                  border-top: thin solid $bg;
+                                                  
+                                                  &:last-child {
+                                                       border-bottom: thin solid $bg;
+                                                  }
+                                                  a {
+                                                       padding: 10px;
+                                                       width: 100%;
+                                                       display: flex;
+                                                       align-items: center;
+                                                       height: 90px;
+
+                                                       .avatar {
+                                                            overflow: hidden;
+                                                            display: block;
+                                                            border-radius: 50%;
+
+                                                            width: 90px;
+                                                            margin: 0 10px 0 0;
+
+                                                            img {
+                                                                 width: 100%;
+                                                                 height: auto;;
+                                                            }
+                                                       }
+
+                                                       i {
+                                                            span {
+                                                                 display: block;
+
+                                                                 &.name {
+                                                                      @include mainTypo_bd();
+                                                                 }
+                                                                 &.mssg {
+                                                                      padding: 5px 0;
+                                                                      white-space: nowrap;
+                                                                      overflow: hidden;
+                                                                      text-overflow: ellipsis;
+                                                                      width: 210px;
+                                                                 }
+                                                            }
+                                                       }
+                                                  }
+                                             }
+                                        }
+                                   }
+
+                                   .bottom {
+                                        a {
+                                             width: 100%;
+                                             text-align: center;
+                                             height: 50px;
+                                        }
+                                   }
+                              }
+                              
+                              .notiMenu {
+                                   position: absolute;
+                                   right: 0;
+                                   top: calc(#{$topBarHeight} + 10px);
+                                   background: white;
+                                   border-radius: 5px;
+                                   overflow: auto;
+                                   width: 300px;
+                                   box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+
+                                   .top {
+                                        text-align: center;
+                                        padding: 15px 10px;
+
+                                        @include mainTypo_bd();
+                                   }
+
+                                   .mssgItems {
+                                        ul {
+                                             display: block;
+                                             height: 230px;
+                                             overflow: scroll;
+
+                                             li {
+                                                  border-top: thin solid $bg;
+                                                  
+                                                  &:last-child {
+                                                       border-bottom: thin solid $bg;
+                                                  }
+                                                  a {
+                                                       padding: 10px;
+                                                       width: 100%;
+                                                       display: flex;
+                                                       align-items: center;
+                                                       height: 90px;
+
+                                                       .avatar {
+                                                            overflow: hidden;
+                                                            display: block;
+                                                            border-radius: 50%;
+
+                                                            width: 90px;
+                                                            margin: 0 10px 0 0;
+
+                                                            img {
+                                                                 width: 100%;
+                                                                 height: auto;;
+                                                            }
+                                                       }
+
+                                                       i {
+                                                            span {
+                                                                 display: block;
+
+                                                                 &.name {
+                                                                      @include mainTypo_bd();
+                                                                 }
+                                                                 &.mssg {
+                                                                      padding: 5px 0;
+                                                                      white-space: nowrap;
+                                                                      overflow: hidden;
+                                                                      text-overflow: ellipsis;
+                                                                      width: 210px;
+                                                                 }
+                                                            }
+                                                       }
+                                                  }
+                                             }
+                                        }
+                                   }
+
+                                   .bottom {
+                                        a {
+                                             width: 100%;
+                                             text-align: center;
+                                             height: 50px;
+                                        }
+                                   }
+                              }
+
+                              &.searchItem {
+                                   display: flex;
+                                   .searchWrap {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        padding: 0 10px 0 0;
+                                        width: 330px;
+
+                                        mat-form-field {
+                                             width: 100%;
+                                        }
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+     }
+}
+
+.menuSmall {
+     .topbar {
+          .navbar {
+               .navbarHeader {
+                    width: $sideBarWidthSm;
+
+                    span {
+                         display: none;
+                    }
+               }
+
+               .navbarItems {
+                    width: calc( 100% - #{$sideBarWidthSm});
+
+                    .navbar-collapse {
+                         a {
+     
+                              i {
+                                   width: 3px;
+                                   height: 3px;
+                                   border-radius: 50%;
+                                   
+                                   &:before {
+                                        width: 3px;
+                                        height: 3px;
+                                        border-radius: 50%;
+                                   }
+                                   &:after {
+                                        width: 3px;
+                                        height: 3px;
+                                        border-radius: 50%;
+                                   }
+                              }
+                         }
+                    }
+               }
+
+          }
+     }
+}
+
+.light-theme {
+
+     .topbar {
+          .navbar {
+               .navbarHeader {
+                    b, span {
+                         .dark-logo {
+                              display:block;
+                         }
+                         .light-logo {
+                              display:none;
+                         }
+                    }
+               }
+          }
+     }
+
+}
+
+.dark-theme {
+
+     .topbar {
+          .navbar {
+               .navbarHeader {
+                    b, span {
+                         .dark-logo {
+                              display:none;
+                         }
+                         .light-logo {
+                              display:block;
+                         }
+                    }
+               }
+          }
+     }
+
+}

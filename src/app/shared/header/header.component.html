@@ -1,0 +1,200 @@
+
+<div class="topbar">
+  <div class="navbar">
+
+    <div class="navbarHeader">
+      <a class="navbar-brand" href="#">
+        <b>
+          <img src="assets/img/logoIco.png" alt="homepage" class="dark-logo" />
+          <img src="assets/img/logoIco_lght.png" alt="homepage" class="light-logo" />
+        </b>
+        <span>
+          <img src="assets/img/logoTxt.png" alt="homepage" class="dark-logo" />
+          <img src="assets/img/logoTxt_lght.png" alt="homepage" class="light-logo" />
+        </span>
+      </a>
+    </div>
+
+    <div class="navbarItems">
+      <div class="navbar-collapse">
+        <a class="waves-effect" (click)="menuTrgr()">
+          <i>menu</i>
+        </a>
+      </div>
+      <div class="navbar-nav">
+        <ul>
+          <li class="searchItem">
+            <a class="waves-effect" (click)="searchMenu = !searchMenu">
+              <i class="ia ia-search"></i>
+            </a>
+            <div class="searchWrap animated fadeInRight" *ngIf="searchMenu">
+              <!-- <input type="text" placeholder="Buscar..." name="" id=""> -->
+
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Buscar..." value="" name="" id="">
+              </mat-form-field>
+
+            </div>
+          </li>
+          <li (clickOutside)="notiMenu = false">
+            <a class="waves-effect" (click)="notiMenu = !notiMenu">
+              <i class="ia ia-noti"></i>
+            </a>
+            <div class="notiMenu animated flipInY" *ngIf="notiMenu">
+              <div class="top">
+                Tienes 4 notificaciones nuevas
+              </div>
+              <div class="mssgItems">
+                <ul>
+                  <li>
+                    <a class="waves-effect">
+                      <span class="avatar">
+                        <img src="https://uinames.com/api/photos/female/9.jpg" alt="">
+                      </span>
+                      <i>
+                        <span class="name">Adriana Builes</span>
+                        <span class="mssg">lorem ipsum dolor sit amet dolor adispiscing</span>
+                        <span class="time">9:30 AM</span>
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="waves-effect">
+                      <span class="avatar">
+                        <img src="https://uinames.com/api/photos/female/9.jpg" alt="">
+                      </span>
+                      <i>
+                        <span class="name">Adriana Builes</span>
+                        <span class="mssg">lorem ipsum dolor sit amet dolor adispiscing</span>
+                        <span class="time">9:30 AM</span>
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="waves-effect">
+                      <span class="avatar">
+                        <img src="https://uinames.com/api/photos/female/9.jpg" alt="">
+                      </span>
+                      <i>
+                        <span class="name">Adriana Builes</span>
+                        <span class="mssg">lorem ipsum dolor sit amet dolor adispiscing</span>
+                        <span class="time">9:30 AM</span>
+                      </i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a class="waves-effect">Ver todos las notificaciones</a>
+              </div>
+            </div>
+          </li>
+          <li (clickOutside)="mssgMenu = false">
+            <a class="waves-effect" (click)="mssgMenu = !mssgMenu">
+              <i class="ia ia-mssg"></i>
+            </a>
+            <div class="mssgsMenu animated flipInY" *ngIf="mssgMenu">
+              <div class="top">
+                Tienes 4 mensajes nuevos
+              </div>
+              <div class="mssgItems">
+                <ul>
+                  <li>
+                    <a class="waves-effect">
+                      <span class="avatar">
+                        <img src="https://uinames.com/api/photos/female/9.jpg" alt="">
+                      </span>
+                      <i>
+                        <span class="name">Adriana Builes</span>
+                        <span class="mssg">lorem ipsum dolor sit amet dolor adispiscing</span>
+                        <span class="time">9:30 AM</span>
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="waves-effect">
+                      <span class="avatar">
+                        <img src="https://uinames.com/api/photos/female/9.jpg" alt="">
+                      </span>
+                      <i>
+                        <span class="name">Adriana Builes</span>
+                        <span class="mssg">lorem ipsum dolor sit amet dolor adispiscing</span>
+                        <span class="time">9:30 AM</span>
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="waves-effect">
+                      <span class="avatar">
+                        <img src="https://uinames.com/api/photos/female/9.jpg" alt="">
+                      </span>
+                      <i>
+                        <span class="name">Adriana Builes</span>
+                        <span class="mssg">lorem ipsum dolor sit amet dolor adispiscing</span>
+                        <span class="time">9:30 AM</span>
+                      </i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a class="waves-effect">Ver todos los mensajes</a>
+              </div>
+            </div>
+          </li>
+          <li (clickOutside)="avatarMenu = false">
+            <a class="waves-effect avatarWrap" (click)="avatarMenu = !avatarMenu">
+              <b class="avatar">
+                <img src="assets/img/avatar.png" alt="">
+              </b>
+            </a>
+            <div class="avatarMenu animated flipInY" *ngIf="avatarMenu">
+              <div class="top">
+                <div class="avatar">
+                    <img src="assets/img/avatar.png" alt="">
+                </div>
+                <div class="info">
+                  <div class="name">Camilo Castrillón</div>
+                  <div class="mail">camilo_96@example.com</div>
+                </div>
+              </div>
+              <div class="menu">
+                <ul>
+                  <li>
+                    <a class="waves-effect">
+                      <i class="ia ia-profile"></i>
+                      <span>Mi Perfil</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="waves-effect">
+                      <i class="ia ia-mssg"></i>
+                      <span>Inbox</span>
+                    </a>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <a class="waves-effect">
+                      <i class="ia ia-config"></i>
+                      <span>Configuración</span>
+                    </a>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <a class="waves-effect">
+                      <i class="ia ia-logout"></i>
+                      <span>Cerrar sesión</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

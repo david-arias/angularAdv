@@ -1,0 +1,31 @@
+
+// = = = = = = =
+// VARS
+// = = = = = = =
+
+// COLORS
+$bg: #f1f2f6;
+$main: #2980b9;
+
+$ttls: #{$main};
+
+$greyLight: #a4b0be;
+$grey: #57606f;
+$greyDark: #2f3542;
+
+// SIZES
+$topBarHeight: 70px;
+
+$sideBarWidth: 270px;
+$sideBarWidthSm: 80px;
+
+
+// = = = = = = =
+// MIXINS
+// = = = = = = =
+@mixin transitioanAll ($secs, $delay:0s) {
+     -webkit-transition: all $secs ease-in-out $delay;
+     -moz-transition: all $secs ease-in-out $delay;
+     -o-transition: all $secs ease-in-out $delay;
+     transition: all $secs ease-in-out $delay;
+}

@@ -1,0 +1,248 @@
+
+// $photoId: 'photo-1547375182-16cf621d398a';
+$photoId: 'photo-1547221034-59a865c85070';
+
+
+.wrapper {
+     position: relative;
+     width: 100vw;
+     height: 100vh;
+
+     &.maskInit {
+          -webkit-mask-image: url('assets/img/homeSlideTransition.png');
+          -webkit-mask-size: 57600px 1080px;
+          -webkit-mask-repeat: no-repeat;
+          
+          mask-image: url('assets/img/homeSlideTransition.png');
+          mask-size: 57600px 1080px;
+          mask-repeat: no-repeat;
+     
+          @keyframes play {
+               100% { mask-position: 100% 0; }
+          }
+          @keyframes playBack {
+               100% { mask-position: 0% 0; }
+          }
+     
+          &.active {
+               -webkit-mask-position: 0 0;
+               mask-position: 0 0;
+               animation: play 1.5s steps(29) forwards;
+          }
+          &.OutActive {
+               -webkit-mask-position: 100% 0;
+               mask-position: 100% 0;
+               animation: playBack 1.5s steps(29) forwards;
+          }
+     }
+
+
+     .wrap {
+          width: 100vw;
+          height: 100vh;
+          
+          background: url('https://images.unsplash.com/#{$photoId}?auto=format&fit=crop&w=1920&h=1080&q=75') center center no-repeat;
+          background-attachment: fixed; 
+
+          .box {
+               position: fixed;
+               top: 0;
+               right: 0;
+               width: 33vw;
+               height: 100vh;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+
+               background: url('https://images.unsplash.com/#{$photoId}?auto=format&fit=crop&w=1920&h=1080&q=75&blur=35') center center no-repeat;
+               background-attachment: fixed; 
+
+               &:before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: rgba(0,0,0,0.25);
+                    z-index: -1;
+               }
+
+               .boxCont {
+                    .topBrand {
+                         display: flex;
+                         justify-content: center;
+                         flex-wrap: wrap;
+
+                         .icon {
+                              flex-basis: 100%;
+
+                              img {
+                                   width: 60px;
+                                   height: auto;
+                                   margin: auto;
+                              }
+                         }
+                         .text {
+                              flex-basis: 100%;
+
+                              img {
+                                   width: 180px;
+                                   height: auto;
+                                   margin: auto;
+                              }
+                         }
+                    }
+
+                    .formWrap {
+                         width: 340px;
+                         margin: 20px 0;
+
+                         .formItem {
+                              margin: 0 0 15px 0;
+
+                              mat-form-field {
+                                   width: 100%;
+
+                                   .mat-form-field-infix {
+                                        .mat-form-field-label {
+                                             color: white;
+                                        }
+                                   }
+                                   
+                                   .mat-form-field-underline {
+                                        background-color: white;
+                                   }
+
+                                   &.mat-focused {
+                                        .mat-form-field-infix {
+                                             .mat-form-field-label {
+                                                  color: $main;
+                                             }
+                                        }
+                                   }
+                              }
+
+                              
+                              &.formItemSubmit {
+                                   button {
+                                        padding: 15px;
+                                        width: 100%;
+                                        text-transform: uppercase;
+                                        letter-spacing: 1px;
+                                        background: $main;
+                                        border-radius: 30px;
+                                        color: white;
+                                   }
+                              }
+                              &.formItemFlex {
+                                   display: flex;
+                                   justify-content: space-between;
+                                   margin: -10px 0 40px 0;
+
+                                   .remember {
+                                        .mat-checkbox-layout {
+                                             .mat-checkbox-inner-container {
+                                                  .mat-checkbox-frame {
+                                                       border: thin solid white;
+                                                  }
+
+                                             }
+                                        }
+                                        .mat-checkbox-checkmark {
+                                             fill: $main;
+
+                                             .mat-checkbox-checkmark-path {
+                                                  stroke: $main !important;
+                                                  stroke-width: 4px;
+                                             }
+                                        }
+                                   }
+                              }
+
+                              &.formItemTtl {
+                                   h3 {
+                                        font-size: 22px;
+                                        text-transform: uppercase;
+                                        color: white;
+                                        margin: 0 0 5px 0;
+                                   }
+
+                                   p {
+                                        line-height: 1.5;
+                                   }
+                              }
+                         }
+                    }
+
+                    .socialBtn {
+                         text-align: center;
+
+                         animation-delay: 0.4s;
+
+                         button {
+                              background: #dd4b39;
+
+                              padding: 5px;
+                              border-radius: 5px;
+                              font-size: 30px;
+                              width: 50px;
+                              height: 40px;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              margin: auto;
+                         }
+                    }
+                    
+                    .regBtnWrap {
+                         text-align: center;
+                         margin: 50px 0 0 0;
+
+                         animation-delay: 0.8s;
+
+                         a {
+                              color: $main;
+                              cursor: pointer;
+                         }
+
+                         &.regBtnWrapBack {
+                              a {
+                                   color: white;
+                              }
+                         }
+                    }
+               }
+
+               &.box-light {
+                    color: white;
+                    .boxCont {
+                         .topBrand {
+                              .dark-logo {
+                                   display:none;
+                              }
+                              .light-logo {
+                                   display:block;
+                              }
+                         }
+                    }
+               }
+               &.box-dark {
+                    color: $greyDark;
+                    .boxCont {
+                         .topBrand {
+                              .dark-logo {
+                                   display:block;
+                              }
+                              .light-logo {
+                                   display:none;
+                              }
+                         }
+                    }
+               }
+               
+          }
+     }
+
+}

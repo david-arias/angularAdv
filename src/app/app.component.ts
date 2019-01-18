@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+
+declare var $:any;
+declare var Waves:any;
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'adminPro';
+
+  constructor() {
+    // INIT WAVES EFFECT
+    Waves.init();
+  }
+
 }

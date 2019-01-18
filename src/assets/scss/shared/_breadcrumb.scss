@@ -1,0 +1,46 @@
+
+.breadCrumbWrap {
+     padding: 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+
+     .title {
+          @include mainTypo_rg();
+          font-size: 24px;
+          color: $ttls;
+     }
+
+     .bread {
+          ol {
+               display: flex;
+
+               li {
+                    margin: 0 10px 0 15px;
+                    position: relative;
+                    
+                    &:after {
+                         font-family: 'adminIcons';
+                         content: "\ea04";
+
+                         position: absolute;
+                         right: -20px;
+                         top: 2px;
+                         opacity: 0.5;
+                    }
+                    
+                    &:last-child {
+                         opacity: 0.5;
+                         &:after {
+                              display: none;
+                         }
+                    }
+
+                    a {
+                         color: $ttls;
+                    }
+
+               }
+          }
+     }
+}

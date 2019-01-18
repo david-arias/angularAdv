@@ -1,0 +1,160 @@
+
+.left-sidebar {
+     position: fixed;
+     width: $sideBarWidth;
+     height: calc( 100% - #{$topBarHeight} );
+     top: $topBarHeight;
+     background: $greyDark;
+
+     z-index: 5;
+
+     .scroll-sidebar {
+          .sidebar-menu {
+               li {
+                    &.sidebar-header {
+                         color: rgba(255,255,255,0.5);
+                         @include mainTypo_rg();
+                         letter-spacing: 2px;
+                         background: $greyDark;
+                    }
+
+                    a {
+                         display: flex;
+                         align-items: center;
+                         justify-content: space-between;
+                         padding: 15px;
+                         background: $grey;
+                         color: white;
+                         letter-spacing: 1px;
+                         
+                         b {
+                              display: flex;
+                              align-items: center;
+                              @include mainTypo_rg();
+
+                              i {
+                                   margin: 0 10px 0 0;
+                                   font-size: 25px;
+                              }
+
+                              .avatar {
+                                   width: 30px;
+                                   height: 30px;
+                                   overflow: hidden;
+                                   border-radius: 50%;
+
+                                   img {
+                                        width: 100%;
+                                        height: auto;;
+                                   }
+                              }
+                         }
+
+                         .ia-arrow {
+                              @include transitioanAll(0.3s);
+                         }
+                    }
+
+                    &.active {
+                         a {
+                              .ia-arrow {
+                                   transform: rotate(-270deg);
+                              }
+                         }
+                    }
+
+                    .sidebar-submenu {
+                         padding: 0;
+
+                         li {
+                              a {
+                                   justify-content: flex-start;
+
+                                   background: $greyDark;
+                                   padding: 15px 15px 15px 50px;
+
+                                   i {
+                                        margin: 0  8px 0 0;
+                                        font-size: 25px;
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+     }
+}
+
+.menuSmall {
+     .left-sidebar {
+          width: $sideBarWidthSm;
+
+          .scroll-sidebar {
+               .sidebar-menu {
+
+                    li {
+                         &.sidebar-header {
+                              display: none;
+                         }
+
+                         a {
+                              justify-content: center;
+
+                              b {
+                                   i {
+                                        margin: 0;
+                                   }
+                                   span {
+                                        display: none;
+                                   }
+                              }
+     
+                              .ia-arrow {
+                                   display: none;
+                              }
+                         }
+
+                         .sidebar-submenu {
+                              position: absolute;
+                              top: 0;
+                              left: calc( #{$sideBarWidthSm} + 20px );
+                              background: transparent;
+
+                              &:before {
+                                   content: "";
+                                   position: absolute;
+                                   border-top: 10px solid transparent;
+                                   border-right: 10px solid $greyDark;
+                                   border-bottom: 10px solid transparent;
+                                   border-left: 10px solid transparent;
+                                   left: -20px;
+                                   top: 15px;
+                                   width: 0;
+                                   height: 0;
+                              }
+
+                              li {
+                                   overflow: hidden;
+                                   display: block;
+
+                                   &:first-child {
+                                        border-radius: 10px 10px 0 0;
+                                   }
+                                   &:last-child {
+                                        border-radius: 0 0 10px 10px;
+                                   }
+                                   &:first-child:last-child {
+                                        border-radius: 10px 10px 10px 10px;
+                                   }
+
+                                   a {
+                                        padding: 15px 25px;
+                                        min-width: 210px;
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+     }
+}

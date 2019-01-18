@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+
+// base imports
+@import 'assets/scss/reset';
+@import 'assets/scss/vars';
+
+// fonts
+@import 'assets/scss/fonts/fonts';
+@import 'assets/scss/fonts/iconsFont';
+
+// material design
+@import "assets/scss/materialTheme";
+
+
+// BASE STYLES
+body {
+     background: $bg;
+     color: $grey;
+
+     @include mainTypo_rg();
+}
+
+// Shared imports
+@import 'assets/scss/shared/header';
+@import 'assets/scss/shared/sideBar';
+@import 'assets/scss/shared/breadcrumb';
+
+// Page Wrapper
+.page-wrapper {
+     position: fixed;
+     top: $topBarHeight;
+     left: $sideBarWidth;
+     width: calc(100% - #{$sideBarWidth});
+     height: calc(100% - #{$topBarHeight});
+
+     z-index: 1;
+}
+.menuSmall {
+     .page-wrapper {
+          position: fixed;
+          top: $topBarHeight;
+          left: $sideBarWidthSm;
+          width: calc(100% - #{$sideBarWidthSm});
+     }
+}
+
+.routerOutletWrap {
+     padding: 20px;
+}
+
+// PAGES imports
+@import 'assets/scss/pages/loginReg';

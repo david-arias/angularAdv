@@ -1,0 +1,20 @@
+
+
+// main typo
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700,900');
+
+$mainTypo: 'Titillium Web', sans-serif;
+
+
+@mixin mainTypo_bd {
+     font-weight: 700;
+     font-family: $mainTypo;
+}
+@mixin mainTypo_rg {
+     font-weight: 400;
+     font-family: $mainTypo;
+}
+@mixin mainTypo_lh {
+     font-weight: 300;
+     font-family: $mainTypo;
+}
