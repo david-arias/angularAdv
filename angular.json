@@ -26,9 +26,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/assets/plugins/shrink/shrink.scss",
-              
+            "styles": [              
               "src/assets/plugins/sideBarMenu/sidebar-menu.css",
               "node_modules/animate.css/animate.min.css",
               "node_modules/node-waves/dist/waves.min.css",

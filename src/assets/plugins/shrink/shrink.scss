@@ -1,14 +1,13 @@
 
-
 // SHRINK
 
-// VARIBLES
-@import "vars/sizes";
+     // VARIBLES
+     @import "vars/sizes";
 
-// MIXINS
-@import "mixins/mixin-queries";
-@import "mixins/mixin-container";
-@import "mixins/mixin-grid";
+     // MIXINS
+     @import "mixins/mixin-queries";
+     @import "mixins/mixin-container";
+     @import "mixins/mixin-grid";
 
-// UTILITIES
-@import "utils/grid-system";
+     // UTILITIES
+     @import "utils/grid-system";

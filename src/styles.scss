@@ -1,4 +1,8 @@
 
+// base SHRINK Styles
+@import 'assets/plugins/shrink/shrink';
+
+
 // base imports
 @import 'assets/scss/reset';
 @import 'assets/scss/vars';
@@ -17,16 +21,6 @@ body {
      color: $grey;
 
      @include mainTypo_rg();
-}
-ul li, ol li {
-     margin: 0 ;
-}
-a {
-     text-decoration: none !important;
-     
-     &:hover {
-          text-decoration: none !important;
-     }
 }
 
 // Shared imports
