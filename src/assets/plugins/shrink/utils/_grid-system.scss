@@ -1,0 +1,34 @@
+@mixin innerContainer() {
+     .container {
+          width: auto;
+     }
+}
+
+/* CONTAINER */
+.container {
+     @include make_container();
+     @include make_container_MaxWidth();
+
+     @include innerContainer();
+}
+.container_fluid {
+     @include make_container_fluid();
+
+     @include innerContainer();
+}
+
+/* ROW */
+.container .row {
+     @include make_row();
+
+     @include innerContainer();
+}
+.container_fluid .row {
+     @include make_row_fluid();
+
+     @include innerContainer();
+}
+
+
+/* COLUMS */
+@include make_grid_cols();

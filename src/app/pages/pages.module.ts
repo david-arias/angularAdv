@@ -15,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
 
 // plugins module
 import { PluginsModule } from '../plugins.module';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -27,12 +28,14 @@ import { PluginsModule } from '../plugins.module';
      declarations: [
           PagesComponent,
 
-          DashboardComponent
+          DashboardComponent,
+          AccountSettingsComponent
      ],
      exports: [
           PagesComponent,
-
-          DashboardComponent
+          
+          DashboardComponent,
+          AccountSettingsComponent
      ],
      providers: [],
 })

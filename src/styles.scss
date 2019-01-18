@@ -18,6 +18,16 @@ body {
 
      @include mainTypo_rg();
 }
+ul li, ol li {
+     margin: 0 ;
+}
+a {
+     text-decoration: none !important;
+     
+     &:hover {
+          text-decoration: none !important;
+     }
+}
 
 // Shared imports
 @import 'assets/scss/shared/header';

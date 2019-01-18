@@ -27,10 +27,13 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/plugins/shrink/shrink.scss",
+              
               "src/assets/plugins/sideBarMenu/sidebar-menu.css",
               "node_modules/animate.css/animate.min.css",
               "node_modules/node-waves/dist/waves.min.css",
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+
               "src/styles.scss"
             ],
             "scripts": [

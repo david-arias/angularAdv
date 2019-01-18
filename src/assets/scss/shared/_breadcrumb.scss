@@ -1,4 +1,7 @@
 
+$breadcrumb-separator: '|';
+$breadcrumb-spacing: 8px;
+
 .breadCrumbWrap {
      padding: 20px;
      display: flex;
@@ -12,35 +15,34 @@
      }
 
      .bread {
-          ol {
+
+          .breadcrumbs {
                display: flex;
+               list-style: none;
+               font-size: 14px;
 
                li {
-                    margin: 0 10px 0 15px;
-                    position: relative;
-                    
-                    &:after {
-                         font-family: 'adminIcons';
-                         content: "\ea04";
+                    display: block;
 
-                         position: absolute;
-                         right: -20px;
-                         top: 2px;
-                         opacity: 0.5;
+                    &::after {
+                         display: inline-block;
+                         content: $breadcrumb-separator;
+                         padding: 0 $breadcrumb-spacing;
+
+                         color: $main;
                     }
-                    
-                    &:last-child {
-                         opacity: 0.5;
-                         &:after {
+
+                    &:last-of-type {
+                         &::after {
                               display: none;
                          }
                     }
-
+                    
                     a {
-                         color: $ttls;
+                         color: $main;
                     }
-
                }
           }
+          
      }
 }
