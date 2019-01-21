@@ -16,10 +16,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       $(".maskInit").addClass('active');
-    }, 1000);
+    }, 100);
     setTimeout(() => {
       $(".wrapper").removeClass('maskInit active');
-    }, 3000);
+    }, 2100);
   }
 
   goToReg() {
@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       this.router.navigate(['/register']);
     }, 1500);
+  }
+
+  logIn() {
+    this.router.navigate(['/dashboard']);
   }
 
 }

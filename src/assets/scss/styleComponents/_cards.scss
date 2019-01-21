@@ -1,0 +1,42 @@
+
+$cardCol-gutter: 30px;
+
+.card {
+     border-radius: 5px;
+     overflow: hidden;
+     position: relative;
+     margin-bottom: $cardCol-gutter;
+
+     background: white;
+
+     .card-header {
+          padding: 15px 15px 15px 15px;
+          @include mainTypo_bd();
+          color: $ttls;
+          font-size: 20px;
+     }
+
+     .card-body {
+          padding: 15px 15px 20px 15px;
+
+          .card-ttl {
+               @include mainTypo_rg();
+               font-size: 20px;
+               margin: 0 0 5px 0;
+               color: $ttls;
+          }
+          
+          .card-subttl {
+               @include mainTypo_rg();
+               font-size: 17px;
+               margin: 0 0 5px 0;
+               color: $greyDark;
+          }
+          .card-txt {
+               @include mainTypo_rg();
+               font-size: 16px;
+               margin: 0 0 15px 0;
+               color: $greyDark;
+          }
+     }
+}

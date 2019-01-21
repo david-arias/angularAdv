@@ -8,7 +8,6 @@
      z-index: 5;
 
      .navbar {
-          background: white;
           height: $topBarHeight;
           box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
           display: flex;
@@ -53,19 +52,16 @@
                          display: flex;
                          align-items: center;
                          justify-content: center;
-                         background: white;
                          width: 60px;
 
                          i {
                               font-size: 0;
                               width: 20px;
                               height: 2px;
-                              background: $grey;
                               position: relative;
                               @include transitioanAll(0.3s);
                               
                               &:before {
-                                   background: $grey;
                                    content: "";
                                    width: 20px;
                                    height: 2px;
@@ -75,7 +71,6 @@
                                    @include transitioanAll(0.3s);
                               }
                               &:after {
-                                   background: $grey;
                                    content: "";
                                    width: 20px;
                                    height: 2px;
@@ -103,7 +98,6 @@
                                    display: flex;
                                    align-items: center;
                                    justify-content: center;
-                                   background: white;
                                    width: 50px;
                                    
                                    .ia {
@@ -181,6 +175,8 @@
                                                        justify-content: flex-start;
                                                        height: auto;
                                                        padding: 15px 20px;
+                                                       background: transparent;
+                                                       color: $sideBarDark;
 
                                                        i.ia {
                                                             margin: 0 5px 0 0;
@@ -226,6 +222,8 @@
                                                        display: flex;
                                                        align-items: center;
                                                        height: 90px;
+                                                       background: transparent;
+                                                       color: $sideBarDark;
 
                                                        .avatar {
                                                             overflow: hidden;
@@ -267,6 +265,9 @@
                                              width: 100%;
                                              text-align: center;
                                              height: 50px;
+
+                                             background: transparent;
+                                             color: $sideBarDark;
                                         }
                                    }
                               }
@@ -306,6 +307,8 @@
                                                        display: flex;
                                                        align-items: center;
                                                        height: 90px;
+                                                       background: transparent;
+                                                       color: $sideBarDark;
 
                                                        .avatar {
                                                             overflow: hidden;
@@ -347,12 +350,16 @@
                                              width: 100%;
                                              text-align: center;
                                              height: 50px;
+
+                                             background: transparent;
+                                             color: $sideBarDark;
                                         }
                                    }
                               }
 
                               &.searchItem {
                                    display: flex;
+                                   
                                    .searchWrap {
                                         display: flex;
                                         align-items: center;
@@ -413,40 +420,3 @@
      }
 }
 
-.light-theme {
-
-     .topbar {
-          .navbar {
-               .navbarHeader {
-                    b, span {
-                         .dark-logo {
-                              display:block;
-                         }
-                         .light-logo {
-                              display:none;
-                         }
-                    }
-               }
-          }
-     }
-
-}
-
-.dark-theme {
-
-     .topbar {
-          .navbar {
-               .navbarHeader {
-                    b, span {
-                         .dark-logo {
-                              display:none;
-                         }
-                         .light-logo {
-                              display:block;
-                         }
-                    }
-               }
-          }
-     }
-
-}

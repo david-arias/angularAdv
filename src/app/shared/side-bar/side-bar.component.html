@@ -4,63 +4,65 @@
   <div class="scroll-sidebar">
       <ul class="sidebar-menu">
 
-          <li>
-            <a class="waves-effect">
-              <b>
-                <i class="avatar">
-                    <img src="assets/img/avatar.png" alt="">
-                </i>
-                <span>Camilo Castrillón</span>
-              </b>
-              <i class="ia ia-arrow"></i>
-            </a>
-            <ul class="sidebar-submenu">
-              <li>
-                <a class="waves-effect">
-                  <i class="ia ia-profile"></i>
-                  Mi Perfil
-                </a>
-              </li>
-              <li>
-                <a class="waves-effect">
-                  <i class="ia ia-mssg"></i>
-                  Inbox
-                </a>
-              </li>
-              <li>
-                <a class="waves-effect" [routerLink]="[ '/account-settings' ]">
-                  <i class="ia ia-config"></i>
-                  Configuración
-                </a>
-              </li>
-              <li>
-                <a class="waves-effect">
-                  <i class="ia ia-logout"></i>
-                  Cerrar Sesión
-                </a>
-              </li>
-            </ul>
-          </li>
-
-        <li class="sidebar-header">MAIN NAVIGATION</li>
-
         <li>
           <a class="waves-effect">
             <b>
-              <i class="ia ia-config"></i>
-              <span>Dashboard</span>
+              <i class="avatar">
+                  <img src="assets/img/avatar.png" alt="">
+              </i>
+              <span>Camilo Castrillón</span>
             </b>
             <i class="ia ia-arrow"></i>
           </a>
           <ul class="sidebar-submenu">
             <li>
               <a class="waves-effect">
+                <i class="ia ia-profile"></i>
+                Mi Perfil
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect">
+                <i class="ia ia-mssg"></i>
+                Inbox
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect" [routerLink]="[ '/account-settings' ]">
                 <i class="ia ia-config"></i>
-                Dashboard v1
+                Configuración
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect" [routerLink]="[ '/login' ]">
+                <i class="ia ia-logout"></i>
+                Cerrar Sesión
               </a>
             </li>
           </ul>
         </li>
+
+        <span *ngFor="let main of _sidebar.menu">
+          <li class="sidebar-header">{{main.titulo | uppercase}}</li>
+
+          <li *ngFor="let sub of main.menu">
+            <a class="waves-effect" [routerLink]="[sub.url]">
+                <b>
+                  <i class="ia {{sub.icon}}"></i>
+                  <span>{{sub.titulo}}</span>
+                </b>
+                <i class="ia ia-arrow"></i>
+            </a>
+            <ul class="sidebar-submenu">
+              <li *ngFor="let item of sub.submenu">
+                  <a class="waves-effect" [routerLink]="[item.url]">
+                    <i class="ia {{item.icon}}"></i>
+                    {{item.titulo}}
+                  </a>
+              </li>
+            </ul>
+          </li>
+        </span>
 
       </ul>
   </div>

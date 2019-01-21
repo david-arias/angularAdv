@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidebarService } from '../../services/service.index';
 
 declare var $:any;
 @Component({
@@ -8,7 +9,7 @@ declare var $:any;
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() {
+  constructor( public _sidebar:SidebarService) {
   }
   
   ngOnInit() {

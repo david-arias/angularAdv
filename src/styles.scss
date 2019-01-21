@@ -14,6 +14,11 @@
 // material design
 @import "assets/scss/materialTheme";
 
+// admin thmes
+@import "assets/scss/admThemes";
+
+// Style Components
+@import "assets/scss/styleComponents/cards";
 
 // BASE STYLES
 body {
@@ -53,3 +58,4 @@ body {
 
 // PAGES imports
 @import 'assets/scss/pages/loginReg';
+@import 'assets/scss/pages/accountSettings';

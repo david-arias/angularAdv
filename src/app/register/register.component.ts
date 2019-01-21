@@ -14,10 +14,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       $(".maskInit").addClass('active');
-    }, 1000);
+    }, 100);
     setTimeout(() => {
       $(".wrapper").removeClass('maskInit active');
-    }, 3000);
+    }, 2100);
   }
 
   goToReg() {

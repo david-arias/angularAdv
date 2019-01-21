@@ -1,5 +1,8 @@
 import { Component, HostListener } from '@angular/core';
 
+// services
+import { SettingsService } from './services/service.index';
+
 declare var $:any;
 declare var Waves:any;
 
@@ -11,7 +14,7 @@ declare var Waves:any;
 export class AppComponent {
   title = 'adminPro';
 
-  constructor() {
+  constructor( public _settings:SettingsService ) {
     // INIT WAVES EFFECT
     Waves.init();
   }

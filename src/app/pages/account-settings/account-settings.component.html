@@ -1,30 +1,127 @@
 
-<div class="row">
-  <div class="col_lg_6">
-      
-      <div class="card">
-        <div class="card-body">
-          <div class="card-ttl">Temas</div>
-          <div class="card-txt">
-            selecciona un tema
-          </div>
+<div class="accountSettingsWrap">
+  <div class="row">
 
-          <div class="types">
+    <div class="themePicker">
+      <div class="col_lg_6">
+          
+          <div class="card">
+    
+            <div class="card-body">
+              <div class="card-ttl">TEMAS</div>
+              <div class="card-subttl">Selecciona un tema del administrador</div>
 
-            <form>
+              <div class="themeItmsWrap">
+                <div class="ttl">
+                  <p>Barra lateral clara</p>
+                </div>
+                <div class="themeItms">
+
+                  <div class="themeItm thmChck-green">
+                    <input type="radio" name="thmCheck" id="green-check-light">
+                    <label for="green-check-light" (click)="changeTheme('green', 'light')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
+                  <div class="themeItm thmChck-blue">
+                    <input type="radio" name="thmCheck" id="blue-check-light">
+                    <label for="blue-check-light" (click)="changeTheme('blue', 'light')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
+                  <div class="themeItm thmChck-red">
+                    <input type="radio" name="thmCheck" id="red-check-light">
+                    <label for="red-check-light" (click)="changeTheme('red', 'light')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
+                  <div class="themeItm thmChck-dark">
+                    <input type="radio" name="thmCheck" id="dark-check-light">
+                    <label for="dark-check-light" (click)="changeTheme('dark', 'light')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
+                  <div class="themeItm thmChck-light">
+                    <input type="radio" name="thmCheck" id="light-check-light">
+                    <label for="light-check-light" (click)="changeTheme('light', 'light')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
+
+                </div>
+              </div>
               
-              <fieldset>
-                <legend>Barra lateral clara</legend>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio, assumenda porro maxime magni tempora adipisci fugit eum doloremque rerum, qui laborum! Beatae fuga ullam error officia maxime, aliquid quibusdam neque.
-              </fieldset>
+              <div class="themeItmsWrap">
+                <div class="ttl">
+                  <p>Barra lateral oscura</p>
+                </div>
+                <div class="themeItms">
 
-            </form>
+                  <div class="themeItm themeItmDark thmChck-green">
+                    <input type="radio" name="thmCheck" id="green-check-dark">
+                    <label for="green-check-dark" (click)="changeTheme('green', 'dark')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
+                  <div class="themeItm themeItmDark thmChck-blue">
+                    <input type="radio" name="thmCheck" id="blue-check-dark">
+                    <label for="blue-check-dark" (click)="changeTheme('blue', 'dark')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
+                  <div class="themeItm themeItmDark thmChck-red">
+                    <input type="radio" name="thmCheck" id="red-check-dark">
+                    <label for="red-check-dark" (click)="changeTheme('red', 'dark')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
+                  <div class="themeItm themeItmDark thmChck-dark">
+                    <input type="radio" name="thmCheck" id="dark-check-dark">
+                    <label for="dark-check-dark" (click)="changeTheme('dark', 'dark')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
+                  <div class="themeItm themeItmDark thmChck-light">
+                    <input type="radio" name="thmCheck" id="light-check-dark">
+                    <label for="light-check-dark" (click)="changeTheme('light', 'dark')">
+                      <svg xml:space="preserve" focusable="false" version="1.1" viewBox="0 0 24 24">
+                        <path d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white"></path>
+                      </svg>
+                    </label>
+                  </div>
 
+                </div>
+              </div>
 
+              <!--div class="themeItmsWrap">
+                <div class="ttl">
+                  <p>Barra lateral oscura</p>
+                </div>
+              </div-->
+    
+            </div>
           </div>
-
-        </div>
+    
       </div>
+    </div>
 
   </div>
 </div>

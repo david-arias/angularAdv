@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+
 // Routes
 import { APP_ROUTES } from './app.routes';
 
@@ -14,8 +16,11 @@ import { RegisterComponent } from './register/register.component';
 // modules
 import { PagesModule } from './pages/pages.module';
 
-// modules
+// plugins
 import { PluginsModule } from './plugins.module';
+
+// services
+import { ServiceModule } from './services/service.module';
 
 
 @NgModule({
@@ -29,14 +34,18 @@ import { PluginsModule } from './plugins.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     APP_ROUTES,
+
+    ServiceModule,
 
     PluginsModule,
 
     PagesModule,
     
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

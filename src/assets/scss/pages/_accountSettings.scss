@@ -1,0 +1,139 @@
+
+.accountSettingsWrap {
+     .themePicker {
+          .themeItmsWrap {
+               margin: 30px 0 15px 0;
+               .ttl {
+                    margin: 0 0 10px 0;
+               }
+
+               .themeItms {
+                    display: flex;
+
+                    .themeItm {
+                         margin: 0 10px 0 0;
+
+                         input[type="radio"] {
+                              position: absolute;
+                              visibility: hidden;
+                         }
+                         label {
+                              width: 60px;
+                              height: 60px;
+                              border-radius: 50%;
+                              background: beige;
+                              font-size: 0;
+
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+
+                              svg {
+                                   width: 20px;
+                                   position: relative;
+                                   z-index: 1;
+
+                                   path {
+                                        stroke: #2980b9 !important;
+                                        stroke-width: 3px;
+
+                                        stroke-dashoffset: 22.91026;
+                                        stroke-dasharray: 22.91026;
+
+                                        @include transitioanAll(0.3s);
+                                   }
+
+                              }
+                         }
+                         input:checked + label {
+                              svg {
+                                   path {
+                                        stroke-dashoffset: 0;
+                                   }
+                              }
+                         }
+
+                         &.thmChck-green {
+                              label {
+                                   background: $thm-green;
+
+                                   svg {
+                                        path {
+                                             stroke: $light !important;
+                                        }
+                                   }
+                              }
+                         }
+                         &.thmChck-blue {
+                              label {
+                                   background: $thm-blue;
+
+                                   svg {
+                                        path {
+                                             stroke: $light !important;
+                                        }
+                                   }
+                              }
+                         }
+                         &.thmChck-red {
+                              label {
+                                   background: $thm-red;
+
+                                   svg {
+                                        path {
+                                             stroke: $light !important;
+                                        }
+                                   }
+                              }
+                         }
+                         &.thmChck-dark {
+                              label {
+                                   background: $thm-dark;
+
+                                   svg {
+                                        path {
+                                             stroke: $light !important;
+                                        }
+                                   }
+                              }
+                         }
+                         &.thmChck-light {
+                              label {
+                                   background: $thm-light;
+
+                                   svg {
+                                        path {
+                                             stroke: $greyDark !important;
+                                        }
+                                   }
+                              }
+                         }
+
+                         &.themeItmDark {
+                              label {
+                                   &:before {
+                                        content: "";
+                                        position: absolute;
+                                        width: 30px;
+                                        height: 30px;
+                                        border-radius: 50%;
+                                        background: $thm-dark;
+                                        z-index: 0;
+                                   }
+                              }
+
+                              &.thmChck-light {
+                                   label {     
+                                        svg {
+                                             path {
+                                                  stroke: $light !important;
+                                             }
+                                        }
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+     }
+}

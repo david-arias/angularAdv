@@ -1,0 +1,326 @@
+
+// light / Dark Theme
+body {
+
+     &.lighten-theme {
+     
+          .topbar {
+               .navbar {
+                    .navbarHeader {
+
+                         .navbar-brand {
+                              background: $sideBarLight;
+                         }
+
+                         b, span {
+                              .dark-logo {
+                                   display:block;
+                              }
+                              .light-logo {
+                                   display:none;
+                              }
+                         }
+                    }
+               }
+          }
+
+          .left-sidebar {
+               background: $sideBarLight;
+
+               .scroll-sidebar {
+                    .sidebar-menu {
+                         li {
+                              &.sidebar-header {
+                                   background: $sideBarLight;
+                                   color: $sideBarDark;
+                              }
+
+                              a {
+                                   background: darken($sideBarLight, 5%);
+                                   color: $sideBarDark;
+                              }
+                              
+                              .sidebar-submenu {
+                                   li {
+                                        a {
+                                             background: darken($sideBarLight, 10%);
+                                        }
+                                   }
+                              }
+                         }
+
+                    }
+               }
+          }
+     }
+     
+     &.darken-theme {
+     
+          .topbar {
+               .navbar {
+
+                    .navbarHeader {
+
+                         .navbar-brand {
+                              background: $sideBarDark;
+                         }
+
+                         b, span {
+                              .dark-logo {
+                                   display:none;
+                              }
+                              .light-logo {
+                                   display:block;
+                              }
+                         }
+                    }
+               }
+          }
+
+          .left-sidebar {
+               background: $sideBarDark;
+
+               .scroll-sidebar {
+                    .sidebar-menu {
+                         li {
+                              &.sidebar-header {
+                                   background: $sideBarDark;
+                                   color: $sideBarLight;
+                              }
+                              a {
+                                   background: lighten($sideBarDark, 5%);
+                                   color: $sideBarLight;
+                              }
+
+                              .sidebar-submenu {
+                                   li {
+                                        a {
+                                             background: darken($sideBarDark, 5%);
+                                        }
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+     
+     }
+
+}
+
+
+// color themes
+%light {
+     .navbarItems {
+          .navbar-collapse {
+               a {
+                    i {
+                         background: $sideBarLight;
+                         
+                         &:before {
+                              background: $sideBarLight;
+                         }
+                         &:after {
+                              background: $sideBarLight;
+                         }
+                    }
+               }
+          }
+          .navbar-nav {
+               ul {
+                    li {
+                         a {
+                              color: $sideBarLight;
+                         }
+
+                         &.searchItem {
+                              .searchWrap {
+                                   .mat-form-field-label-wrapper {
+                                        .mat-form-field-label {
+                                             color: $sideBarLight;
+                                        }
+                                   }
+                                   mat-form-field .mat-form-field-underline {
+                                        background-color: $sideBarLight;
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+     }
+}
+%dark {
+     .navbarItems {
+          .navbar-collapse {
+               a {
+                    i {
+                         background: $sideBarDark;
+                         
+                         &:before {
+                              background: $sideBarDark;
+                         }
+                         &:after {
+                              background: $sideBarDark;
+                         }
+                    }
+               }
+          }
+          .navbar-nav {
+               ul {
+                    li {
+                         a {
+                              color: $sideBarDark;
+                         }
+
+                         &.searchItem {
+                              .searchWrap {
+                                   .mat-form-field-label-wrapper {
+                                        .mat-form-field-label {
+                                             color: $sideBarDark;
+                                        }
+                                   }
+                                   mat-form-field .mat-form-field-underline {
+                                        background-color: $sideBarDark;
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+     }
+}
+
+body {
+     &.green-theme {
+          .topbar {
+               .navbar {
+                    background: $thm-green;
+                    
+                    .navbarItems {
+                         .navbar-collapse {
+                              a {
+                                   background: $thm-green;
+                              }
+                         }
+                         .navbar-nav {
+                              ul {
+                                   li {
+                                        a {
+                                             background: $thm-green;
+                                        }
+                                   }
+                              }
+                         }
+                    }
+
+                    @extend %light;
+               }
+          }
+     }
+     &.blue-theme {
+          .topbar {
+               .navbar {
+                    background: $thm-blue;
+
+                    .navbarItems {
+                         .navbar-collapse {
+                              a {
+                                   background: $thm-blue;
+                              }
+                         }
+                         .navbar-nav {
+                              ul {
+                                   li {
+                                        a {
+                                             background: $thm-blue;
+                                        }
+                                   }
+                              }
+                         }
+                    }
+
+                    @extend %light;
+               }
+          }
+     }
+     &.red-theme {
+          .topbar {
+               .navbar {
+                    background: $thm-red;
+
+                    .navbarItems {
+                         .navbar-collapse {
+                              a {
+                                   background: $thm-red;
+                              }
+                         }
+                         .navbar-nav {
+                              ul {
+                                   li {
+                                        a {
+                                             background: $thm-red;
+                                        }
+                                   }
+                              }
+                         }
+                    }
+
+                    @extend %light;
+               }
+          }
+     }
+     &.dark-theme {
+          .topbar {
+               .navbar {
+                    background: $thm-dark;
+
+                    .navbarItems {
+                         .navbar-collapse {
+                              a {
+                                   background: $thm-dark;
+                              }
+                         }
+                         
+                         .navbar-nav {
+                              ul {
+                                   li {
+                                        a {
+                                             background: $thm-dark;
+                                        }
+                                   }
+                              }
+                         }
+                    }
+
+                    @extend %light;
+               }
+          }
+     }
+     &.light-theme {
+          .topbar {
+               .navbar {
+                    background: $thm-light;
+
+                    .navbarItems {
+                         .navbar-collapse {
+                              a {
+                                   background: $thm-light;
+                              }
+                         }
+                         .navbar-nav {
+                              ul {
+                                   li {
+                                        a {
+                                             background: $thm-light;
+                                        }
+                                   }
+                              }
+                         }
+                    }
+
+                    @extend %dark;
+               }
+          }
+     }
+}
