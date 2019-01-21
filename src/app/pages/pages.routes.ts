@@ -7,13 +7,44 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
+// temporal
+import { PromesaComponent } from './temporal/promesa/promesa.component';
+import { RxjsComponent } from './temporal/rxjs/rxjs.component';
+
 const pagesRoutes: Routes = [
      {
           path: '',
           component: PagesComponent,
           children: [
-               { path: 'dashboard', component: DashboardComponent },
-               { path: 'account-settings', component: AccountSettingsComponent },
+               { path: 'dashboard', component: DashboardComponent, data: {
+                    titulo: 'Personal',
+                    child: {
+                         titulo: 'Dashboard',
+                         description: 'Esta es la página de Dashboard'
+                    }
+               } },
+               { path: 'account-settings', component: AccountSettingsComponent, data: {
+                    titulo: 'Cuenta',
+                    child: {
+                         titulo: 'Configuración de cuenta',
+                         description: 'Esta es la página de Configuración de cuenta'
+                    }
+               } },
+               { path: 'promesas', component: PromesaComponent, data: {
+                    titulo: 'Temporal',
+                    child: {
+                         titulo: 'Promesas',
+                         description: 'Esta es la página de Promesas'
+                    }
+               } },
+               { path: 'rxjs', component: RxjsComponent, data: {
+                    titulo: 'Temporal',
+                    child: {
+                         titulo: 'RxJs',
+                         description: 'Esta es la página de RxJs'
+                    }
+                    
+               } },
                { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
           ] },
 ];

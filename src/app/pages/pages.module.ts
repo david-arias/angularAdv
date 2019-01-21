@@ -16,6 +16,8 @@ import { SharedModule } from '../shared/shared.module';
 // plugins module
 import { PluginsModule } from '../plugins.module';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromesaComponent } from './temporal/promesa/promesa.component';
+import { RxjsComponent } from './temporal/rxjs/rxjs.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
           PagesComponent,
 
           DashboardComponent,
-          AccountSettingsComponent
+          AccountSettingsComponent,
+          PromesaComponent,
+          RxjsComponent
      ],
      exports: [
           PagesComponent,

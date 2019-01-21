@@ -22,6 +22,27 @@ export class SidebarService {
           ]
         }
       ]
+    },
+    {
+      titulo: '',
+      menu: [
+        {
+          titulo: 'Temporal',
+          icon: 'ia-config',
+          url: '#',
+          submenu: [
+            {
+              titulo: 'Promesas',
+              icon: 'ia-config',
+              url: '/promesas',
+            }, {
+              titulo: 'RxJs',
+              icon: 'ia-config',
+              url: '/rxjs',
+            }
+          ]
+        }
+      ]
     }
   ]
 
