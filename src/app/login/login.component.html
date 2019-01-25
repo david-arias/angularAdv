@@ -16,21 +16,21 @@
         </div>
 
         <div class="formWrap animated fadeInRight">
-          <form (ngSubmit)="logIn()">
+          <form ngNativeValidate #form="ngForm" (ngSubmit)="logIn( form )">
             <div class="formItem">
               <mat-form-field class="example-full-width">
-                <input matInput type="text" autocomplete="false" placeholder="Usuario" name="" value="">
+                <input matInput type="email" autocomplete="false" placeholder="Usuario" [ngModel]="email" name="userMail" required>
               </mat-form-field>
             </div>
             <div class="formItem">
               <mat-form-field class="example-full-width">
-                <input matInput type="password" autocomplete="false" placeholder="Contraseña" name="" value="">
+                <input matInput type="password" autocomplete="false" placeholder="Contraseña" ngModel name="userPsswrd" required>
               </mat-form-field>
             </div>
 
             <div class="formItem formItemFlex">
               <div class="remember">
-                <mat-checkbox>Recuérdame
+                <mat-checkbox [(ngModel)]="remember" name="remember">Recuérdame
                 </mat-checkbox>
               </div>
               <div class="forgot">
@@ -49,7 +49,7 @@
         </div>
 
         <div class="socialBtn animated fadeInRight">
-          <button type="button" class="waves-effect">
+          <button type="button" class="waves-effect" id="btnGoogle">
             <i class="ia ia-gplus"></i>
           </button>
         </div>

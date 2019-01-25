@@ -11,10 +11,14 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesaComponent } from './temporal/promesa/promesa.component';
 import { RxjsComponent } from './temporal/rxjs/rxjs.component';
 
+// guards
+import { LoginGuardGuard } from '../services/guards/login-guard.guard';
+
 const pagesRoutes: Routes = [
      {
           path: '',
           component: PagesComponent,
+          canActivate: [ LoginGuardGuard ],
           children: [
                { path: 'dashboard', component: DashboardComponent, data: {
                     titulo: 'Personal',

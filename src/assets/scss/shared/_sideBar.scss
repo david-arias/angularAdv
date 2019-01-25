@@ -10,6 +10,8 @@
      .scroll-sidebar {
           .sidebar-menu {
                li {
+                    position: relative;
+                    
                     &.sidebar-header {
                          @include mainTypo_rg();
                          letter-spacing: 2px;
@@ -52,6 +54,7 @@
                     }
 
                     &.active {
+
                          a {
                               .ia-arrow {
                                    transform: rotate(-270deg);

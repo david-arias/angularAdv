@@ -183,7 +183,7 @@
                 </ul>
                 <ul>
                   <li>
-                    <a class="waves-effect" [routerLink]="[ '/login' ]">
+                    <a class="waves-effect" (click)="_us.logOut()">
                       <i class="ia ia-logout"></i>
                       <span>Cerrar sesión</span>
                     </a>

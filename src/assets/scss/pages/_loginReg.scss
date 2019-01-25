@@ -48,7 +48,7 @@ $photoId: 'photo-1547221034-59a865c85070';
                position: fixed;
                top: 0;
                right: 0;
-               width: 33vw;
+               width: 450px;
                height: 100vh;
                display: flex;
                align-items: center;
@@ -65,7 +65,7 @@ $photoId: 'photo-1547221034-59a865c85070';
                     position: absolute;
                     top: 0;
                     left: 0;
-                    background: rgba(0,0,0,0.25);
+                    background: rgba(0,0,0,0.5);
                     z-index: -1;
                }
 
@@ -101,9 +101,14 @@ $photoId: 'photo-1547221034-59a865c85070';
 
                          .formItem {
                               margin: 0 0 15px 0;
+                              
 
                               mat-form-field {
                                    width: 100%;
+
+                                   .mat-hint {
+                                        color: lighten($main, 20%);
+                                   }
 
                                    .mat-form-field-infix {
                                         .mat-form-field-label {
@@ -122,6 +127,12 @@ $photoId: 'photo-1547221034-59a865c85070';
                                              }
                                         }
                                    }
+                              }
+
+                              &.formItemError {
+                                   margin: -28px 0 45px 0;
+                                   font-size: 14px;
+                                   color: $thm-red;
                               }
 
                               

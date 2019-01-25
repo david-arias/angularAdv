@@ -16,7 +16,7 @@
           </div>
   
           <div class="formWrap">
-            <form action="">
+            <form ngNativeValidate [formGroup]="forma" (ngSubmit)="registerUser()">
               <div class="formItem formItemTtl">
                 <h3>Regístrese ahora</h3>
                 <p>Crear una nueva cuenta</p>
@@ -24,35 +24,45 @@
 
               <div class="formItem">
                 <mat-form-field class="example-full-width">
-                  <input matInput type="text" autocomplete="false" placeholder="Nombre" name="" value="">
+                  <input matInput type="text" autocomplete="false" placeholder="Nombre" formControlName="userName" name="userName" required>
+                  <mat-error >
+                    El nombre es obligatorio
+                  </mat-error>
                 </mat-form-field>
               </div>
               <div class="formItem">
                 <mat-form-field class="example-full-width">
-                  <input matInput type="email" autocomplete="false" placeholder="E-mail" name="" value="">
+                  <input matInput type="email" autocomplete="false" placeholder="E-mail" formControlName="userMail" name="userMail" required>
+                  <mat-hint>Eg. : correo@mail.com</mat-hint>
+                  <mat-error >
+                    El correo electrónico es obligatorio
+                  </mat-error>
                 </mat-form-field>
               </div>
               <div class="formItem">
                 <mat-form-field class="example-full-width">
-                  <input matInput type="password" autocomplete="false" placeholder="Contraseña" name="" value="">
+                  <input matInput type="password" autocomplete="false" placeholder="Contraseña" formControlName="userPsswrd" name="userPsswrd" required>
                 </mat-form-field>
               </div>
               <div class="formItem">
                 <mat-form-field class="example-full-width">
-                  <input matInput type="password" autocomplete="false" placeholder="Confirmar Contraseña" name="" value="">
+                  <input matInput type="password" autocomplete="false" placeholder="Confirmar Contraseña"  formControlName="userPsswrd2" name="userPsswrd2" required>
                 </mat-form-field>
+              </div>
+              <div class="formItem formItemError" *ngIf="forma.errors?.sonIguales && !forma.pristine">
+                Las contraseñas deben ser iguales
               </div>
 
               <div class="formItem formItemFlex">
                 <div class="remember">
-                  <mat-checkbox>Estoy de acuerdo con los <a >términos</a>
+                  <mat-checkbox formControlName="terms" name="terms">Estoy de acuerdo con los <a >términos</a>
                   </mat-checkbox>
                 </div>
               </div>
 
               <div class="formItem formItemSubmit">
-                <button type="button" class="waves-effect">
-                  Regístrese
+                <button type="submit" class="waves-effect">
+                  Regístrarme
                 </button>
               </div>
 
@@ -60,7 +70,7 @@
           </div>
   
           <div class="regBtnWrap">
-            Ya tienes una cuenta? <a (click)="goToReg()">Iniciar sesión</a>
+            Ya tienes una cuenta? <a (click)="goToLogin()">Iniciar sesión</a>
           </div>
     
         </div>
