@@ -6,6 +6,7 @@ import { PagesComponent } from './pages.component';
 // pages
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { ProfileComponent } from './profile/profile.component';
 
 // temporal
 import { PromesaComponent } from './temporal/promesa/promesa.component';
@@ -34,6 +35,15 @@ const pagesRoutes: Routes = [
                          description: 'Esta es la página de Configuración de cuenta'
                     }
                } },
+               { path: 'profile', component: ProfileComponent, data: {
+                    titulo: 'Cuenta',
+                    child: {
+                         titulo: 'Mi perfil',
+                         description: 'Esta es la página de Configuración del perfil'
+                    }
+               } },
+
+               // temporal
                { path: 'promesas', component: PromesaComponent, data: {
                     titulo: 'Temporal',
                     child: {
@@ -49,6 +59,8 @@ const pagesRoutes: Routes = [
                     }
                     
                } },
+
+               // dafault
                { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
           ] },
 ];

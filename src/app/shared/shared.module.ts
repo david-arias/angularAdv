@@ -11,6 +11,9 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 // plugins module
 import { PluginsModule } from '../plugins.module';
 
+// pipes
+import { PipesModule } from '../pipes/pipes.module';
+
 
 @NgModule({
      declarations: [
@@ -20,7 +23,9 @@ import { PluginsModule } from '../plugins.module';
      ],
      imports: [
           RouterModule,
-          PluginsModule
+          PluginsModule,
+
+          PipesModule
      ],
      exports: [
           HeaderComponent,

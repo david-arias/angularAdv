@@ -39,11 +39,23 @@ body {
                                    background: darken($sideBarLight, 5%);
                                    color: $sideBarDark;
                               }
+                              &.active {
+                                   a {
+                                        border-left: 3px solid $main;
+                                   }
+                              }
                               
                               .sidebar-submenu {
                                    li {
                                         a {
                                              background: darken($sideBarLight, 10%);
+                                             border-left: none;
+                                        }
+
+                                        &.active {
+                                             a {
+                                                  border-left: 4px solid darken($main, 15%) !important;
+                                             }
                                         }
                                    }
                               }
@@ -91,11 +103,23 @@ body {
                                    background: lighten($sideBarDark, 5%);
                                    color: $sideBarLight;
                               }
+                              &.active {
+                                   a {
+                                        border-left: 3px solid $main;
+                                   }
+                              }
 
                               .sidebar-submenu {
                                    li {
                                         a {
                                              background: darken($sideBarDark, 5%);
+                                             border-left: none;
+                                        }
+
+                                        &.active {
+                                             a {
+                                                  border-left: 4px solid darken($main, 15%) !important;
+                                             }
                                         }
                                    }
                               }

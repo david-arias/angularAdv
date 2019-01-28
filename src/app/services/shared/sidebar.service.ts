@@ -11,12 +11,12 @@ export class SidebarService {
       menu: [
         {
           titulo: 'Dashboard',
-          icon: 'ia-config',
+          icon: 'fas fa-tachometer-alt ',
           url: '#',
           submenu: [
             {
               titulo: 'Dashboard',
-              icon: 'ia-config',
+              icon: 'fas fa-tachometer-alt ',
               url: '/dashboard',
             }
           ]
@@ -28,16 +28,16 @@ export class SidebarService {
       menu: [
         {
           titulo: 'Temporal',
-          icon: 'ia-config',
+          icon: 'far fa-clock',
           url: '#',
           submenu: [
             {
               titulo: 'Promesas',
-              icon: 'ia-config',
+              icon: 'far fa-clock',
               url: '/promesas',
             }, {
               titulo: 'RxJs',
-              icon: 'ia-config',
+              icon: 'far fa-clock',
               url: '/rxjs',
             }
           ]

@@ -1,0 +1,89 @@
+
+<div class="profileWrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col_lg_7">
+        <div class="card animated fadeInUp">
+          <div class="card-body">
+            <div class="card-ttl">Información de perfil</div>
+            <div class="card-subttl">Edita tu información de perfil</div>
+  
+            <div class="userForm">
+              <form class="" ngNativeValidate #usrform="ngForm" (ngSubmit)="updateUser( usrform.value )">
+                
+                <div class="formItem">
+                  <mat-form-field>
+                    <input matInput type="text" autocomplete="false" placeholder="Nombre"  name="userName" [ngModel]="user.userName" required>
+                    <mat-error >
+                      El nombre es obligatorio
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="formItem">
+                  <mat-form-field>
+                    <input matInput type="email" autocomplete="false" placeholder="E-mail"  [ngModel]="user.userMail" name="userMail" required [disabled]="user.google">
+                    <mat-hint>Eg. : correo@mail.com</mat-hint>
+                    <mat-error >
+                      El correo electrónico es obligatorio
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+  
+                <div class="formItem formItemSubmit">
+                  <button type="submit" class="waves-effect">
+                    <i class="fas fa-save"></i>
+                    Guardar
+                  </button>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col_lg_5">
+          <div class="card animated fadeInUp">
+            <div class="card-body">
+              <div class="card-ttl">Foto de perfil</div>
+              <div class="card-subttl">Edita tu foto de perfil</div>
+
+              <div class="userForm">
+                <form class="">
+                  
+                  <div class="formItem formItemImg" *ngIf="!imgTemp">
+                    <img [src]="user.img | imagen:'users'" alt="">
+                  </div>
+                  <div class="formItem formItemImg" *ngIf="imgTemp">
+                    <img [src]="imgTemp" alt="">
+                  </div>
+                  
+                  <div class="formItem formItemImgName">
+                    <p>nombre de usuario</p>
+                  </div>
+                  <div class="formItem formItemFile">
+                    <input type="file" name="userImg" (change)="selectedImage( $event.target.files[0] )" id="updtUserImg">
+                    <label for="updtUserImg">
+                      <b>
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Subir imagen</span>
+                      </b>
+                    </label>
+                  </div>
+
+                  <div class="formItem formItemUpFile">
+                    <button type="button" (click)="updateImage()" [disabled]="!uploadImg" class="waves-effect">
+                      <i class="far fa-image"></i>
+                      Actualizar foto
+                    </button>
+                  </div>
+                  
+                </form>
+              </div>
+        
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

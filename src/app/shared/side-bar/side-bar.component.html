@@ -8,34 +8,34 @@
           <a class="waves-effect">
             <b>
               <i class="avatar">
-                  <img src="assets/img/avatar.png" alt="">
+                  <img src="{{ user.img | imagen:'users' }}" alt="">
               </i>
-              <span>Camilo Castrillón</span>
+              <span>{{ user.userName }}</span>
             </b>
-            <i class="ia ia-arrow"></i>
+            <i class="fas fa-angle-right"></i>
           </a>
           <ul class="sidebar-submenu">
-            <li>
-              <a class="waves-effect">
-                <i class="ia ia-profile"></i>
+            <li routerLinkActive="active">
+              <a class="waves-effect" [routerLink]="[ '/profile' ]">
+                <i class="fas fa-user-circle"></i>
                 Mi Perfil
               </a>
             </li>
             <li>
               <a class="waves-effect">
-                <i class="ia ia-mssg"></i>
+                <i class="far fa-envelope"></i>
                 Inbox
               </a>
             </li>
-            <li>
+            <li routerLinkActive="active">
               <a class="waves-effect" [routerLink]="[ '/account-settings' ]">
-                <i class="ia ia-config"></i>
+                <i class="fas fa-cog"></i>
                 Configuración
               </a>
             </li>
             <li>
               <a class="waves-effect" (click)="_us.logOut()">
-                <i class="ia ia-logout"></i>
+                <i class="fas fa-sign-out-alt"></i>
                 Cerrar Sesión
               </a>
             </li>
@@ -48,15 +48,15 @@
           <li *ngFor="let sub of main.menu">
             <a class="waves-effect" [routerLink]="[sub.url]">
                 <b>
-                  <i class="ia {{sub.icon}}"></i>
+                  <i class="{{sub.icon}}"></i>
                   <span>{{sub.titulo}}</span>
                 </b>
-                <i class="ia ia-arrow"></i>
+                <i class="fas fa-angle-right"></i>
             </a>
             <ul class="sidebar-submenu">
               <li *ngFor="let item of sub.submenu">
                   <a class="waves-effect" [routerLink]="[item.url]">
-                    <i class="ia {{item.icon}}"></i>
+                    <i class="{{item.icon}}"></i>
                     {{item.titulo}}
                   </a>
               </li>

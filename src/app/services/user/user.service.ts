@@ -7,6 +7,8 @@ import { map } from 'rxjs/operators';
 import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 
+import { ArchivosService } from '../archivos/archivos.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,8 +17,11 @@ export class UserService {
   usuario: User;
   token: string;
 
-  constructor( public http: HttpClient, public router:Router ) {
-
+  constructor(
+    public http: HttpClient,
+    public router:Router,
+    public _arch:ArchivosService,
+  ) {
     this.loadStorage();
   }
 
@@ -89,5 +94,29 @@ export class UserService {
       swal("Usuario creado!", user.userMail , "success");
       return resp.user;
     }) )
+  }
+
+
+  // update user
+  updateUser( user:User ) {
+    var url = URL_SERVICES + '/usuario/' + this.usuario._id + '?token=' + this.token;
+    return this.http.put( url, user ).pipe( map( (resp:any) => {
+      let userDb:User = resp;      
+      this.saveStorage( userDb._id, this.token, user );
+      swal("Usuario actualizado!", user.userMail , "success");
+
+      return true;
+    }))
+  }
+  updateUserImg( file:File, id: string ) {
+    this._arch.uploadFile( file, 'users', id )
+      .then( (resp: any) => {
+        this.usuario.img = resp.user.img;
+        swal("Imagen actualizada!", this.usuario.userName, "success");
+        this.saveStorage( id, this.token, this.usuario );
+      }).catch( resp => {
+        console.log( resp );
+        
+      })
   }
 }

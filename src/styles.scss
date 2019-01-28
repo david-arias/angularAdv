@@ -9,7 +9,6 @@
 
 // fonts
 @import 'assets/scss/fonts/fonts';
-@import 'assets/scss/fonts/iconsFont';
 
 // material design
 @import "assets/scss/materialTheme";
@@ -26,6 +25,9 @@ body {
      color: $grey;
 
      @include mainTypo_rg();
+}
+* .mat-form-field {
+     width: 100%;
 }
 
 // Shared imports
@@ -59,3 +61,4 @@ body {
 // PAGES imports
 @import 'assets/scss/pages/loginReg';
 @import 'assets/scss/pages/accountSettings';
+@import 'assets/scss/pages/profile';

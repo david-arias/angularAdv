@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService, UserService } from '../../services/service.index';
+import { User } from '../../models/user.model';
 
 declare var $:any;
 @Component({
@@ -8,8 +9,11 @@ declare var $:any;
   styles: []
 })
 export class SideBarComponent implements OnInit {
+  
+  user: User;
 
   constructor( public _sidebar:SidebarService, public _us:UserService) {
+    this.user = this._us.usuario;    
   }
   
   ngOnInit() {
