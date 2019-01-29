@@ -1,0 +1,129 @@
+
+
+.modalWrap {
+     position: fixed;
+     z-index: 9999;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     background: rgba(0,0,0,0.8);
+
+     .modalBox {
+          background: white;
+          border-radius: 5px;
+          padding: 10px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+
+          min-width: 400px;
+          min-height: 400px;
+
+          .close {
+               position: absolute;
+               top: 0;
+               right: 0;
+
+               button {
+                    padding: 15px;
+               }
+
+               
+          }
+
+          .header {
+               padding: 15px 5px;
+
+               .ttl {
+                    color: $ttls;
+                    font-size: 20px;
+               }
+          }
+
+          .body {
+               .formItem {
+                    &.formItemFile {
+                         display: flex;
+                         justify-content: center;
+
+                         input {
+                              position: absolute;
+                              visibility: hidden;
+                         }
+
+                         label {
+                              border: 2px dashed $green;
+                              width: 180px;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              padding: 15px;
+                              border-radius: 5px;
+
+                              b {
+                                   display: flex;
+                                   align-items: center;
+                                   justify-content: center;
+                                   color: $green;
+
+                                   i {
+                                        margin: 0 10px 0 0;
+                                        font-size: 20px;
+                                   }
+                              }
+                         }
+                    }
+
+                    &.formItemImg {
+                         width: 150px;
+                         height: 150px;
+                         overflow: hidden;
+                         border-radius: 50%;
+                         margin: 0 auto 20px auto;
+
+                         img {
+                              width: 100%;
+                              height: auto;
+                         }
+                    }
+                    &.formItemImgName {
+                         margin: 10px 0 20px 0;
+                         text-align: center;
+                    }
+               }
+          }
+
+          .bottom {
+               padding: 30px 5px 15px 5px;
+               display: flex;
+               justify-content: space-between;
+
+               button {
+                    border-radius: 5px;
+                    padding: 10px 15px;
+                    
+                    i {
+                         margin: 0 8px 0 0;
+                    }
+
+                    
+                    &.closeBtn {
+                         background: $red;
+                         color: white;
+                    }
+                    
+                    &.upBtn {
+                         background: $main;
+                         color: white;
+                    }
+                    &:disabled {
+                         background: $light;
+                         color: $grey;
+                         opacity: 0.5;
+                    }
+               }
+          }
+     }
+}

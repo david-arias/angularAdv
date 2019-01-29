@@ -1,0 +1,117 @@
+
+<div class="userConfigWrapper">
+  <div class="container">
+
+    <div class="row">
+      <div class="col_lg_12">
+        <div class="card animated fadeIn">
+          <div class="card-body">
+            <!-- <div class="card-ttl">Buscar usuarios</div> -->
+
+            <div class="searchInput">
+              <form>
+                <div class="formItem">
+                  <mat-form-field>
+                    <input matInput type="text" #searchInput autocomplete="false" placeholder="Buscar . . ." [(ngModel)]="srchVal" (keyup)="searchUsers( srchVal )" name="userName">
+                    <button mat-button *ngIf="srchVal" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </mat-form-field>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="loader">
+      <div class="col_lg_12">
+          <div class="loader animated fadeIn">
+            <div class="load">
+                <div class="top">Cargando...</div>
+                <div class="ico">
+                  <i class="fas fa-sync-alt fa-spin"></i>
+                </div>
+                <div class="top">Espera por favor</div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!loader">
+      <div class="col_lg_12">
+        <div class="card animated fadeIn">
+          <div class="card-body">
+            <div class="card-ttl">Usuarios registrados ( <small>{{totalUsers}}</small> )</div>
+
+            <div class="userList">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Imagen</th>
+                      <th>Correo electrónico</th>
+                      <th>Nombre</th>
+                      <th>Rol</th>
+                      <th>Auth</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let user of usuarios">
+                      <td>
+                        <div class="usrImg">
+                          <img (click)="showModal(user)" src="{{user.img | imagen}}" alt="">
+                        </div>
+                      </td>
+                      <td>
+                          {{user.userMail}}
+                      </td>
+                      <td>
+                          {{user.userName}}
+                      </td>
+                      <td>
+                          <!-- <span *ngIf="user.role == 'ADMIN_ROLE'">ADMIN</span>
+                          <span *ngIf="user.role == 'USER_ROLE'">USUARIO</span> -->
+                          <mat-form-field>
+                            <mat-select placeholder="Role de usuario" [(ngModel)]="user.role">
+                              <mat-option value="ADMIN_ROLE">ADMIN</mat-option>
+                              <mat-option value="USER_ROLE">USUARIO</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                      </td>
+                      <td>
+                        <i class="fab fa-google-plus-g" *ngIf="user.google"></i>
+                        <i class="fas fa-user-check" *ngIf="!user.google"></i>
+                      </td>
+                      <td>
+                        <button class="waves-effect editBtn" (click)="updateUser( user)">
+                          <i class="far fa-edit"></i>
+                        </button>
+                        <button class="waves-effect delBtn" (click)="delUser( user)">
+                          <i class="far fa-trash-alt"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+
+            <div class="pagBtns" *ngIf="!searching">
+              <button class="waves-effect" (click)="changeFrom(-5)" [disabled]="from == 0">
+                <i class="fas fa-angle-double-left"></i>
+                <span>Anterior</span>
+              </button>
+              <button class="waves-effect" (click)="changeFrom(5)" [disabled]="from >= (totalUsers - 5) ">
+                <span>Siguiente</span>
+                <i class="fas fa-angle-double-right"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

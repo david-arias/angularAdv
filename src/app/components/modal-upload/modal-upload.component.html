@@ -1,0 +1,54 @@
+
+<div class="modalWrap modalUploadWrap" *ngIf="_mu.closeMod">
+  <div class="modalBox">
+
+    <div class="close">
+      <button class="waves-effect" (click)="closeModal()">
+        <i class="fas fa-times"></i> 
+      </button>
+    </div>
+
+    <div class="header">
+      <div class="ttl">
+        Subir Imagen
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="userForm">
+        <form class="">
+          
+          <div class="formItem formItemImg" *ngIf="!imgTemp">
+            <img [src]="'xxx' | imagen:'users'" alt="">
+          </div>
+          <div class="formItem formItemImg" *ngIf="imgTemp">
+            <img [src]="imgTemp" alt="">
+          </div>
+          <div class="formItem formItemFile">
+            <input type="file" name="userImg" (change)="selectedImage( $event.target.files[0] )" id="updtUserImg">
+            <label for="updtUserImg">
+              <b>
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Subir imagen</span>
+              </b>
+            </label>
+          </div>
+          
+        </form>
+      </div>
+
+    </div>
+
+    <div class="bottom">
+        <button class="waves-effect closeBtn" (click)="closeModal()">
+          <i class="fas fa-times"></i>
+          <span>Cerrar</span> 
+        </button>
+        <button class="waves-effect upBtn" (click)="uploadImgDb()" [disabled]="!imgTemp">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <span>Subir</span> 
+        </button>
+    </div>
+
+  </div>
+</div>

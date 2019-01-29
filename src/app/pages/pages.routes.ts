@@ -14,6 +14,8 @@ import { RxjsComponent } from './temporal/rxjs/rxjs.component';
 
 // guards
 import { LoginGuardGuard } from '../services/guards/login-guard.guard';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+
 
 const pagesRoutes: Routes = [
      {
@@ -40,6 +42,15 @@ const pagesRoutes: Routes = [
                     child: {
                          titulo: 'Mi perfil',
                          description: 'Esta es la página de Configuración del perfil'
+                    }
+               } },
+
+               // mantenimientos
+               { path: 'user-config', component: UsuariosComponent, data: {
+                    titulo: 'Cuenta',
+                    child: {
+                         titulo: 'Mantenimiento usuarios',
+                         description: 'Esta es la página de Mantenimiento usuarios'
                     }
                } },
 

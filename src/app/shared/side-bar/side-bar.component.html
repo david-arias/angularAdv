@@ -21,12 +21,12 @@
                 Mi Perfil
               </a>
             </li>
-            <li>
+            <!-- <li>
               <a class="waves-effect">
                 <i class="far fa-envelope"></i>
                 Inbox
               </a>
-            </li>
+            </li> -->
             <li routerLinkActive="active">
               <a class="waves-effect" [routerLink]="[ '/account-settings' ]">
                 <i class="fas fa-cog"></i>
@@ -43,7 +43,7 @@
         </li>
 
         <span *ngFor="let main of _sidebar.menu">
-          <li class="sidebar-header">{{main.titulo | uppercase}}</li>
+          <li class="sidebar-header" *ngIf="main.titulo">{{main.titulo | uppercase}}</li>
 
           <li *ngFor="let sub of main.menu">
             <a class="waves-effect" [routerLink]="[sub.url]">

@@ -24,7 +24,35 @@ export class SidebarService {
       ]
     },
     {
-      titulo: '',
+      titulo: null,
+      menu: [
+        {
+          titulo: 'Mantenimiento',
+          icon: 'fas fa-toolbox',
+          url: '#',
+          submenu: [
+            {
+              titulo: 'Usuarios',
+              icon: 'fas fa-users-cog',
+              url: '/user-config',
+            },
+            {
+              titulo: 'Productoras',
+              icon: 'fas fa-video',
+              url: '/productoras',
+            },
+            {
+              titulo: 'Peliculas',
+              icon: 'fas fa-film',
+              url: '/peliculas',
+            },
+            
+          ]
+        }
+      ]
+    },
+    {
+      titulo: null,
       menu: [
         {
           titulo: 'Temporal',
@@ -33,11 +61,11 @@ export class SidebarService {
           submenu: [
             {
               titulo: 'Promesas',
-              icon: 'far fa-clock',
+              icon: 'fas fa-stopwatch',
               url: '/promesas',
             }, {
               titulo: 'RxJs',
-              icon: 'far fa-clock',
+              icon: 'fas fa-stopwatch',
               url: '/rxjs',
             }
           ]

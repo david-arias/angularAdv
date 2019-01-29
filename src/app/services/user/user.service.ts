@@ -99,10 +99,22 @@ export class UserService {
 
   // update user
   updateUser( user:User ) {
-    var url = URL_SERVICES + '/usuario/' + this.usuario._id + '?token=' + this.token;
+    
+    var url;
+    
+    if ( user._id === this.usuario._id ) {
+      url = URL_SERVICES + '/usuario/' + this.usuario._id + '?token=' + this.token;
+    } else {
+      url = URL_SERVICES + '/usuario/' + user._id + '?token=' + this.token;
+    }
+    console.log( url );
+
     return this.http.put( url, user ).pipe( map( (resp:any) => {
-      let userDb:User = resp;      
-      this.saveStorage( userDb._id, this.token, user );
+
+      if ( user._id === this.usuario._id ) {
+        let userDb:User = resp;      
+        this.saveStorage( userDb._id, this.token, user );
+      }
       swal("Usuario actualizado!", user.userMail , "success");
 
       return true;
@@ -118,5 +130,25 @@ export class UserService {
         console.log( resp );
         
       })
+  }
+
+  // delete user
+  deleteUser( id : string ) {
+    var url = URL_SERVICES + '/usuario/' + id + '?token=' + this.token;
+
+    return this.http.delete(url);
+  }
+
+  // load users
+  loadUsers( from: number = 0 ) {
+    var url = URL_SERVICES + '/usuario/?from=' + from;
+
+    return this.http.get( url );
+  }
+
+  // search users
+  searchUsers( term: string ) {
+    var url = URL_SERVICES + '/search/category/users/' + term;
+    return this.http.get( url ).pipe( map( (resp:any) => resp.users ));
   }
 }

@@ -8,6 +8,8 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 
@@ -19,14 +21,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
           ClickOutsideModule,
           BrowserAnimationsModule,
           MatInputModule,
-          MatCheckboxModule
+          MatCheckboxModule,
+          MatSelectModule
           
      ],
      exports: [
           ClickOutsideModule,
           BrowserAnimationsModule,
           MatInputModule,
-          MatCheckboxModule
+          MatCheckboxModule,
+          MatSelectModule
      ],
      providers: [],
 })

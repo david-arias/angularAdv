@@ -18,6 +18,8 @@
 
 // Style Components
 @import "assets/scss/styleComponents/cards";
+@import "assets/scss/styleComponents/tables";
+@import "assets/scss/styleComponents/modal";
 
 // BASE STYLES
 body {
@@ -29,6 +31,7 @@ body {
 * .mat-form-field {
      width: 100%;
 }
+
 
 // Shared imports
 @import 'assets/scss/shared/header';
@@ -53,12 +56,14 @@ body {
           width: calc(100% - #{$sideBarWidthSm});
      }
 }
-
 .routerOutletWrap {
-     padding: 20px;
+     padding: 0px 15px 15px 15px;
+     overflow: scroll;
+     height: calc( 100vh - 100px );
 }
 
 // PAGES imports
 @import 'assets/scss/pages/loginReg';
 @import 'assets/scss/pages/accountSettings';
 @import 'assets/scss/pages/profile';
+@import 'assets/scss/pages/userConfig';

@@ -1,5 +1,5 @@
 
-$cardCol-gutter: 30px;
+$cardCol-gutter: #{$grid_w_Gutter};
 
 .card {
      border-radius: 5px;

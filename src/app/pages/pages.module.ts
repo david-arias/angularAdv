@@ -25,7 +25,10 @@ import { FormsModule } from '@angular/forms';
 
 // pipes
 import { PipesModule } from '../pipes/pipes.module';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
+// components
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 @NgModule({
      imports: [
@@ -41,11 +44,13 @@ import { PipesModule } from '../pipes/pipes.module';
           PagesComponent,
 
           RxjsComponent,
+          PromesaComponent,
 
           DashboardComponent,
           AccountSettingsComponent,
-          PromesaComponent,
           ProfileComponent,
+          UsuariosComponent,
+          ModalUploadComponent,
      ],
      exports: [
           PagesComponent,
@@ -53,6 +58,8 @@ import { PipesModule } from '../pipes/pipes.module';
           DashboardComponent,
           AccountSettingsComponent,
           ProfileComponent,
+          UsuariosComponent,
+          ModalUploadComponent,
      ],
      providers: [],
 })
