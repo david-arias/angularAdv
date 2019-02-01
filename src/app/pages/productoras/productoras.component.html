@@ -1,0 +1,111 @@
+
+<div class="prodsConfigWrapper">
+    <div class="container">
+
+        <div class="row">
+          <div class="col_lg_12">
+            <div class="card animated fadeIn">
+              <div class="card-body">
+                <!-- <div class="card-ttl">Buscar usuarios</div> -->
+    
+                <div class="searchInput">
+                  <form>
+                    <div class="formItem">
+                      <mat-form-field>
+                        <input matInput type="text" #searchInput autocomplete="false" placeholder="Buscar productoras . . ." [(ngModel)]="srchVal" (keyup)="searchComp( srchVal )" name="userName">
+                        <button mat-button *ngIf="srchVal" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </mat-form-field>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="loader">
+          <div class="col_lg_12">
+              <div class="loader animated fadeIn">
+                <div class="load">
+                    <div class="top">Cargando...</div>
+                    <div class="ico">
+                      <i class="fas fa-sync-alt fa-spin"></i>
+                    </div>
+                    <div class="top">Espera por favor</div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="!loader">
+            <div class="col_lg_12">
+              <div class="card animated fadeIn">
+                <div class="card-body">
+                  <div class="card-ttl">
+                    <div class="ttl">
+                        Productoras registradas ( <small>{{totalCompanies}}</small> )
+                    </div>
+                    <div class="button">
+                      <button class="waves-effect" (click)="addComp()">
+                          <i class="fas fa-folder-plus"></i>
+                          Agregar productora
+                      </button>
+                    </div>
+                  </div>
+      
+                  <div class="userList">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th width="100px">Imagen</th>
+                            <th>Nombre</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let comp of companies">
+                            <td>
+                              <div class="usrImg">
+                                <img (click)="showModal(comp)" src="{{comp.compLogoImg | imagen:'companies'}}" alt="">
+                              </div>
+                            </td>
+                            <td>
+                                <mat-form-field>
+                                  <input matInput type="text" autocomplete="false" placeholder="Nombre"  name="compName" [(ngModel)]="comp.compName">
+                                </mat-form-field>
+                            </td>
+                            <td>
+                              <div class="editBtns">
+                                <button class="waves-effect editBtn" (click)="updateComp( comp)">
+                                  <i class="far fa-edit"></i>
+                                </button>
+                                <button class="waves-effect delBtn" (click)="delComp( comp)">
+                                  <i class="far fa-trash-alt"></i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+      
+                  <div class="pagBtns" *ngIf="!searching">
+                    <button class="waves-effect" (click)="changeFrom(-5)" [disabled]="from == 0">
+                      <i class="fas fa-angle-double-left"></i>
+                      <span>Anterior</span>
+                    </button>
+                    <button class="waves-effect" (click)="changeFrom(5)" [disabled]="from >= (totalCompanies - 5) ">
+                      <span>Siguiente</span>
+                      <i class="fas fa-angle-double-right"></i>
+                    </button>
+                  </div>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+  
+    </div>
+  </div>

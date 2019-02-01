@@ -1,0 +1,107 @@
+
+<div class="searchWrap">
+  <div class="container">
+    <div class="row">
+
+      <div class="col_lg_4">
+        <div class="card animated fadeIn">
+          <div class="card-body">
+            <div class="card-ttl">Usuarios ( <small>{{usersLen}}</small> )</div>
+
+            <div class="listItems" *ngIf="users.length > 0">
+              <div class="lstItem" *ngFor="let user of users">
+                <div class="img">
+                  <img [src]="user.img | imagen:'users'" alt="img">
+                </div>
+                <div class="info">
+                  <div class="name">{{user.userName}}</div>
+                  <div class="edit">
+                    <button class="waves-effect" [routerLink]="[ '/user-config' ]">
+                      <i class="far fa-edit"></i>
+                      <span>edit</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="notFound" *ngIf="users.length === 0">
+              <div class="icon">
+                  <i class="far fa-grin-beam-sweat"></i>
+              </div>
+              <p>No se encontraron resultados</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="col_lg_4">
+        <div class="card animated fadeIn">
+          <div class="card-body">
+            <div class="card-ttl">Productoras ( <small>{{companiesLen}}</small> )</div>
+
+            <div class="listItems" *ngIf="companies.length > 0">
+              <div class="lstItem" *ngFor="let company of companies">
+                <div class="img">
+                  <img [src]="company.compLogoImg | imagen:'companies'" alt="img">
+                </div>
+                <div class="info">
+                  <div class="name">{{company.compName}}</div>
+                  <div class="edit">
+                    <button class="waves-effect" [routerLink]="[ '/prods-config' ]">
+                      <i class="far fa-edit"></i>
+                      <span>edit</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="notFound" *ngIf="companies.length === 0">
+              <div class="icon">
+                  <i class="far fa-grin-beam-sweat"></i>
+              </div>
+              <p>No se encontraron resultados</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="col_lg_4">
+        <div class="card animated fadeIn">
+          <div class="card-body">
+            <div class="card-ttl">Películas ( <small>{{moviesLen}}</small> )</div>
+
+            <div class="listItems" *ngIf="movies.length > 0">
+              <div class="lstItem" *ngFor="let movie of movies">
+                <div class="img">
+                  <img [src]="movie.moviePoster | imagen:'moviePoster'" alt="img">
+                </div>
+                <div class="info">
+                  <div class="name">{{movie.movieName}}</div>
+                  <div class="edit">
+                    <button class="waves-effect"  [routerLink]="[ '/movie', movie._id ]">
+                      <i class="far fa-edit"></i>
+                      <span>edit</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="notFound" *ngIf="movies.length === 0">
+              <div class="icon">
+                  <i class="far fa-grin-beam-sweat"></i>
+              </div>
+              <p>No se encontraron resultados</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

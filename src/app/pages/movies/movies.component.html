@@ -1,0 +1,120 @@
+
+<div class="movieConfigWrapper">
+  <div class="container">
+
+      <div class="row">
+        <div class="col_lg_12">
+          <div class="card animated fadeIn">
+            <div class="card-body">  
+              <div class="searchInput">
+                <form>
+                  <div class="formItem">
+                    <mat-form-field>
+                      <input matInput type="text" #searchInput autocomplete="false" placeholder="Buscar peliculas . . ." [(ngModel)]="srchVal" (keyup)="searchMovie( srchVal )" name="searchMovie">
+                      <button mat-button *ngIf="srchVal" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </mat-form-field>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row" *ngIf="loader">
+        <div class="col_lg_12">
+            <div class="loader animated fadeIn">
+              <div class="load">
+                  <div class="top">Cargando...</div>
+                  <div class="ico">
+                    <i class="fas fa-sync-alt fa-spin"></i>
+                  </div>
+                  <div class="top">Espera por favor</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="!loader">
+        <div class="col_lg_12">
+          <div class="card animated fadeIn">
+            <div class="card-body">
+              <div class="card-ttl">
+                <div class="ttl">
+                    Peliculas registradas ( <small>{{totalMovies}}</small> )
+                </div>
+                <div class="button">
+                  <button class="waves-effect" [routerLink]="[ '/movie', 'nuevo' ]">
+                      <i class="fas fa-folder-plus"></i>
+                      Agregar pelicula
+                  </button>
+                </div>
+              </div>
+  
+              <div class="userList">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th width="100px">poster</th>
+                        <th>Nombre</th>
+                        <th>Rating</th>
+                        <th>Descripción</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let movie of movies">
+                        <td>
+                          <div class="usrImg">
+                            <img src="{{movie.moviePoster | imagen:'moviePoster'}}" alt="">
+                          </div>
+                        </td>
+                        <td>
+                            <p>
+                              <span><b>{{movie.movieName}}</b>
+                                ( {{movie.movieYear}} )</span>
+                              {{movie.company.compName}}
+                            </p>
+                        </td>
+                        <td>
+                            <p>{{movie.movieRating}}</p>
+                        </td>
+                        <td>
+                            <span>{{movie.movieOverview}}</span>
+                        </td>
+                        <td>
+                          <div class="editBtns">
+                            <button class="waves-effect editBtn" [routerLink]="[ '/movie', movie._id ]">
+                              <i class="far fa-edit"></i>
+                            </button>
+                            <button class="waves-effect delBtn" (click)="deleteMovie( movie )">
+                              <i class="far fa-trash-alt"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+  
+              <div class="pagBtns" *ngIf="!searching">
+                <button class="waves-effect" (click)="changeFrom(-5)" [disabled]="from == 0">
+                  <i class="fas fa-angle-double-left"></i>
+                  <span>Anterior</span>
+                </button>
+                <button class="waves-effect" (click)="changeFrom(5)" [disabled]="from >= (totalMovies - 5) ">
+                  <span>Siguiente</span>
+                  <i class="fas fa-angle-double-right"></i>
+                </button>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>

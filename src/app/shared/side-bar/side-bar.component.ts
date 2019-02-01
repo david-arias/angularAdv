@@ -18,6 +18,8 @@ export class SideBarComponent implements OnInit {
   
   ngOnInit() {
     $.sidebarMenu($('.sidebar-menu'))
+
+    this._sidebar.loadMenu();
   }
 
 }

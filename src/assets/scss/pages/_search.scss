@@ -1,0 +1,63 @@
+
+
+.searchWrap {
+
+     .listItems {
+          margin: 30px 0 10px 0;
+
+          .lstItem {
+               display: flex;
+               align-items: flex-start;
+               margin: 0 0 15px 0;
+
+               .img {
+                    width: 70px;
+                    margin: 0 20px 0 0;
+
+                    img {
+                         width: 100%;
+                         height: auto;
+                    }
+               }
+
+               .info {
+                    width: calc( 100% - 90px );
+
+                    .name {
+                         @include mainTypo_bd();
+                         margin: 0 0 5px 0;
+                    }
+
+                    .edit {
+                         button {
+                              padding: 8px;
+                              background: $main;
+                              color: white;
+                              border-radius: 5px;
+                              border: thin solid $greyLight;
+                              font-size: 14px;
+               
+                              i {
+                                   margin: 0 8px;
+                              }
+                         }
+                    }
+               }
+          }
+     }
+
+     .notFound {
+          margin: 30px 0 10px 0;
+
+          .icon {
+               font-size: 50px;
+               text-align: center;
+          }
+
+          p {
+               text-align: center;
+               margin: 10px 0 0 0;
+               font-size: 18px;
+          }
+     }
+}

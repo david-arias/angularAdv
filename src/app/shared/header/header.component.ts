@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/service.index';
 
 import { User } from '../../models/user.model';
+import { Router } from '@angular/router';
 
 declare var $:any;
 
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   user: User;
 
-  constructor( public _us:UserService ) { }
+  constructor( public _us:UserService,public router:Router ) { }
 
   ngOnInit() {
     this.user = this._us.usuario;    
@@ -27,6 +28,10 @@ export class HeaderComponent implements OnInit {
 
   menuTrgr() {
     $("body").toggleClass( "menuSmall" );
+  }
+
+  buscar( val:string ) {
+    this.router.navigate(['/search', val ])
   }
 
 }

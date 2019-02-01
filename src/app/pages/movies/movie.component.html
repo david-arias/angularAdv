@@ -1,0 +1,174 @@
+
+
+<div class="movieEditWrapper">
+
+  <div class="topMovie">
+    <div class="container">
+      <div class="row">
+        <div class="col_lg_12" *ngIf="movie._id">
+          <div class="backdrops">
+            <img [src]="movie.movieBackdrop | imagen:'movieBacks'" alt="">
+            <div class="overlay"></div>
+          </div>
+    
+          <div class="movieInfo">
+            <div class="info">
+              <div class="poster">
+                <img [src]="movie.moviePoster | imagen:'moviePoster'" alt="">
+              </div>
+              <div class="infotxt">
+                <div class="name">
+                  <b>{{movie.movieName}}</b> <small>( {{movie.movieYear}} )</small>
+                </div>
+                <div class="mid">
+                  <div class="prod">
+                    <img [src]="company.compLogoImg | imagen:'companies'" alt="">
+                    {{company.compName}}
+                  </div>
+                  <div class="rating">
+                    Rating: <b>{{movie.movieRating}}</b>
+                  </div>
+                </div>
+                <div class="overView">
+                  <div class="ttl">Descripción</div>
+                  <div class="txt">{{movie.movieOverview}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col_lg_8">
+            <div class="card animated fadeInUp">
+                <div class="card-body">
+                    <div class="card-ttl">
+                      Información de pelicula
+                    </div>
+                    <div class="card-subttl">Edita tu información de la pelicula</div>
+
+
+                    <div class="userForm">
+                      <form class="" #forma="ngForm" ngNativeValidate (ngSubmit)="saveMovie( forma )">
+                        <div class="formItem">
+                          <mat-form-field>
+                            <input matInput type="text" autocomplete="false" placeholder="Nombre" [(ngModel)]="movie.movieName"  name="movieName" required>
+                          </mat-form-field>
+                        </div>
+                        <div class="formItem">
+                            <mat-form-field>
+                              <mat-select [(ngModel)]="movie.company._id"  name="company" placeholder="Productora" (selectionChange)="changeComp( $event.value )" required>
+                                  <mat-option value="">Selecciona productora</mat-option> <mat-option *ngFor="let comp of companies" value="{{comp._id}}">{{comp.compName}}</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="formItem formItem2Col">
+                          <mat-form-field>
+                            <input matInput type="number" autocomplete="false" placeholder="Año"  name="movieYear" [(ngModel)]="movie.movieYear">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput type="number" autocomplete="false" placeholder="Rating" [(ngModel)]="movie.movieRating" name="movieRating">
+                          </mat-form-field>
+                        </div>
+                        <div class="formItem">
+                          <mat-form-field>
+                              <mat-label>Descripción</mat-label>
+                              <textarea matInput
+                                        [(ngModel)]="movie.movieOverview"
+                                        name="movieOverview"
+                                        cdkTextareaAutosize
+                                        #autosize="cdkTextareaAutosize"
+                                        cdkAutosizeMinRows="2"
+                                        cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                        </div>
+                        <div class="formItem formItemSubmit">
+                          <button type="button" [routerLink]="[ '/movies-config' ]" class="waves-effect cancelBtn">
+                            <i class="fas fa-times"></i>
+                            Cancelar
+                          </button>
+                          <button type="submit" class="waves-effect saveBtn">
+                            <i class="fas fa-save"></i>
+                            Guardar
+                          </button>
+                        </div>
+
+                      </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="col_lg_4">
+
+            <div class="card animated fadeInUp">
+              <div class="card-body">
+                <div class="card-ttl">Productora de pelicula</div>
+  
+                <div class="userForm">
+                  <form class="">
+
+                    <div class="formItem formItemImgPoster">
+                      <img [src]="company.compLogoImg | imagen:'companies'" alt="">
+                    </div>
+                    <div class="formItem formItemImgPoster">
+                      <p *ngIf="company.compName">{{company.compName}}</p>
+                      <p *ngIf="!company.compName">Nombre de productora seleccionada</p>
+                    </div>
+                    
+                  </form>
+                </div>
+          
+              </div>
+            </div>
+
+        </div>
+
+        <div class="col_lg_6" *ngIf="movie._id">
+
+            <div class="card animated fadeInUp">
+              <div class="card-body">
+                <div class="card-ttl">Poster de pelicula</div>
+  
+                <div class="userForm">
+                  <form class="">
+
+                    <div class="formItem formItemImgPoster" (click)="changePoster()">
+                      <img [src]="movie.moviePoster | imagen:'moviePoster'" alt="">
+                    </div>
+                    
+                    
+                  </form>
+                </div>
+          
+              </div>
+            </div>
+
+        </div>
+
+        <div class="col_lg_6" *ngIf="movie._id">
+            
+            <div class="card animated fadeInUp">
+              <div class="card-body">
+                <div class="card-ttl">Backdrop de pelicula</div>
+  
+                <div class="userForm">
+                  <form class="">
+
+                    <div class="formItem formItemImgBack" (click)="changeBack()">
+                      <img [src]="movie.movieBackdrop | imagen:'movieBacks'" alt="">
+                    </div>
+                    
+                  </form>
+                </div>
+          
+              </div>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

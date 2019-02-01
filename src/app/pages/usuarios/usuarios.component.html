@@ -12,7 +12,7 @@
               <form>
                 <div class="formItem">
                   <mat-form-field>
-                    <input matInput type="text" #searchInput autocomplete="false" placeholder="Buscar . . ." [(ngModel)]="srchVal" (keyup)="searchUsers( srchVal )" name="userName">
+                    <input matInput type="text" #searchInput autocomplete="false" placeholder="Buscar usuarios . . ." [(ngModel)]="srchVal" (keyup)="searchUsers( srchVal )" name="userName">
                     <button mat-button *ngIf="srchVal" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
                       <i class="fas fa-times"></i>
                     </button>

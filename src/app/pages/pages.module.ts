@@ -29,6 +29,10 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 
 // components
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+import { ProductorasComponent } from './productoras/productoras.component';
+import { MoviesComponent } from './movies/movies.component';
+import { MovieComponent } from './movies/movie.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
      imports: [
@@ -51,6 +55,10 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
           ProfileComponent,
           UsuariosComponent,
           ModalUploadComponent,
+          ProductorasComponent,
+          MoviesComponent,
+          MovieComponent,
+          SearchComponent,
      ],
      exports: [
           PagesComponent,
@@ -60,6 +68,10 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
           ProfileComponent,
           UsuariosComponent,
           ModalUploadComponent,
+          ProductorasComponent,
+          MoviesComponent,
+          MovieComponent,
+          SearchComponent,
      ],
      providers: [],
 })

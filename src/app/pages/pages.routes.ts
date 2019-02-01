@@ -8,13 +8,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { ProfileComponent } from './profile/profile.component';
 
+import { SearchComponent } from './search/search.component';
+
 // temporal
 import { PromesaComponent } from './temporal/promesa/promesa.component';
 import { RxjsComponent } from './temporal/rxjs/rxjs.component';
 
 // guards
 import { LoginGuardGuard } from '../services/guards/login-guard.guard';
+import { AdminGuard } from '../services/guards/admin.guard';
+
+// mantenimiento
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ProductorasComponent } from './productoras/productoras.component';
+import { MoviesComponent } from './movies/movies.component';
+import { MovieComponent } from './movies/movie.component';
 
 
 const pagesRoutes: Routes = [
@@ -44,13 +52,53 @@ const pagesRoutes: Routes = [
                          description: 'Esta es la página de Configuración del perfil'
                     }
                } },
+               { path: 'search/:query', component: SearchComponent, data: {
+                    titulo: 'Cuenta',
+                    child: {
+                         titulo: 'Busqueda',
+                         description: 'Busqueda de productoras - peluculas - usuarios'
+                    }
+               } },
 
                // mantenimientos
-               { path: 'user-config', component: UsuariosComponent, data: {
+               { path: 'user-config',
+               component: UsuariosComponent,
+               canActivate: [ AdminGuard ],
+               data: {
                     titulo: 'Cuenta',
                     child: {
                          titulo: 'Mantenimiento usuarios',
                          description: 'Esta es la página de Mantenimiento usuarios'
+                    }
+               } },
+               { path: 'prods-config',
+               component: ProductorasComponent,
+               canActivate: [ AdminGuard ],
+               data: {
+                    titulo: 'Cuenta',
+                    child: {
+                         titulo: 'Mantenimiento productoras',
+                         description: 'Esta es la página de Mantenimiento productoras'
+                    }
+               } },
+               { path: 'movies-config',
+               component: MoviesComponent,
+               canActivate: [ AdminGuard ],
+               data: {
+                    titulo: 'Cuenta',
+                    child: {
+                         titulo: 'Mantenimiento Peliculas',
+                         description: 'Esta es la página de Mantenimiento Peliculas'
+                    }
+               } },
+               { path: 'movie/:id',
+               component: MovieComponent,
+               canActivate: [ AdminGuard ],
+               data: {
+                    titulo: 'Cuenta',
+                    child: {
+                         titulo: 'Mantenimiento Pelicula',
+                         description: 'Esta es la página de Mantenimiento pelicula'
                     }
                } },
 

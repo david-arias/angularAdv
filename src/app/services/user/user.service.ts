@@ -16,30 +16,38 @@ export class UserService {
 
   usuario: User;
   token: string;
+  menu: any = [];
 
   constructor(
     public http: HttpClient,
     public router:Router,
-    public _arch:ArchivosService,
+    public _arch:ArchivosService
   ) {
     this.loadStorage();
   }
 
-  saveStorage ( id:string, token:string, user:User ) {
+  saveStorage ( id:string, token:string, user:User, menu:any ) {
     localStorage.setItem('id', id );
     localStorage.setItem('token', token );
     localStorage.setItem('user', JSON.stringify(user) );
+    localStorage.setItem('menu', JSON.stringify(menu) );
 
     this.usuario = user;
     this.token = token;
+    this.menu = menu;
   }
   loadStorage() {
     if ( localStorage.getItem('token') ) {
       this.token = localStorage.getItem('token');
       this.usuario = JSON.parse(localStorage.getItem('user'));
+      this.menu = JSON.parse(localStorage.getItem('menu'));
+
+      console.log( this.menu );
+      
     } else {
       this.token = "";
       this.usuario = null;
+      this.menu = null;
     }
   }
 
@@ -58,8 +66,7 @@ export class UserService {
     }
 
     return this.http.post( url, user ).pipe( map( (resp:any)  => {
-      this.saveStorage( resp.id, resp.token, resp.usuario );
-
+      this.saveStorage( resp.id, resp.token, resp.usuario, resp.menu );      
       return true;
     }))
 
@@ -70,7 +77,7 @@ export class UserService {
     var url = URL_SERVICES + '/login/google';
 
     return this.http.post( url, { token } ).pipe( map ( (resp:any) => {
-      this.saveStorage( resp.usuario._id, resp.token, resp.usuario );                  
+      this.saveStorage( resp.usuario._id, resp.token, resp.usuario, resp.menu );                  
       return true;
     }))
   }
@@ -79,9 +86,11 @@ export class UserService {
   logOut() {
     this.usuario = null;
     this.token = "";
+    this.menu = [];
 
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('menu');
 
     this.router.navigate(['/login'])
   }
@@ -107,13 +116,12 @@ export class UserService {
     } else {
       url = URL_SERVICES + '/usuario/' + user._id + '?token=' + this.token;
     }
-    console.log( url );
 
     return this.http.put( url, user ).pipe( map( (resp:any) => {
 
       if ( user._id === this.usuario._id ) {
         let userDb:User = resp;      
-        this.saveStorage( userDb._id, this.token, user );
+        this.saveStorage( userDb._id, this.token, user, this.menu );
       }
       swal("Usuario actualizado!", user.userMail , "success");
 
@@ -125,7 +133,7 @@ export class UserService {
       .then( (resp: any) => {
         this.usuario.img = resp.user.img;
         swal("Imagen actualizada!", this.usuario.userName, "success");
-        this.saveStorage( id, this.token, this.usuario );
+        this.saveStorage( id, this.token, this.usuario, this.menu );
       }).catch( resp => {
         console.log( resp );
         

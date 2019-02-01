@@ -1,0 +1,98 @@
+
+.prodsConfigWrapper {
+     .loader {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+
+          .top {
+               text-align: center;
+          }
+          .ico {
+               margin: 10px 0;
+               text-align: center;
+               font-size: 30px;
+          }
+
+     }
+
+     .card {
+          .card-ttl {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+
+               button {
+                    padding: 8px 15px;
+                    background: $main;
+                    color: white;
+                    border-radius: 5px;
+                    border: thin solid $greyLight;
+                    font-size: 14px;
+     
+                    i {
+                         margin: 0 8px;
+                    }
+               }
+          }
+     }
+
+     .userList {
+
+          table {
+               tbody {
+                    td {
+                         vertical-align: middle;
+                         padding: 10px;
+                    }
+               }
+          }
+
+          .usrImg {
+               width: 100px;
+               height: auto;
+               overflow: hidden;
+               // border-radius: 50%;
+               img {
+                    width: 100%;
+                    height: auto;
+               }
+          }
+          button {
+               padding: 15px;
+               background: $light;
+               margin: 0 0 0 15px;
+               border-radius: 5px;
+
+               &.delBtn {
+                    background: $red;
+                    color: white;
+               }
+          }
+
+          .editBtns {
+               display: flex;
+               justify-content: flex-end;
+          }
+     }
+     
+     .pagBtns {
+          display: flex;
+          justify-content: space-between;
+
+          button {
+               padding: 15px;
+               background: $light;
+               border-radius: 5px;
+               border: thin solid $greyLight;
+
+               i {
+                    margin: 0 8px;
+               }
+
+               &:disabled {
+                    opacity: 0.3;
+               }
+          }
+     }
+}

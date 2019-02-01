@@ -31,7 +31,7 @@
               <!-- <input type="text" placeholder="Buscar..." name="" id=""> -->
 
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Buscar..." value="" name="" id="">
+                <input matInput #searchInput (keyup.enter)="buscar( searchInput.value )" placeholder="Buscar..." value="" name="" id="">
               </mat-form-field>
 
             </div>

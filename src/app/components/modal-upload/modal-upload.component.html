@@ -19,7 +19,7 @@
         <form class="">
           
           <div class="formItem formItemImg" *ngIf="!imgTemp">
-            <img [src]="'xxx' | imagen:'users'" alt="">
+            <img [src]="'xxx' | imagen: _mu.type" alt="">
           </div>
           <div class="formItem formItemImg" *ngIf="imgTemp">
             <img [src]="imgTemp" alt="">
