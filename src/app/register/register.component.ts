@@ -78,7 +78,7 @@ export class RegisterComponent implements OnInit {
 
 
   registerUser() {
-    console.log(this.forma.value);
+    // console.log(this.forma.value);
 
     if ( this.forma.invalid ) {
       console.log('formulario inválido | valid: ', this.forma.valid);

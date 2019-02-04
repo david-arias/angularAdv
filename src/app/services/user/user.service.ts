@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICES } from 'src/app/config/config';
 
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 
 import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
+
 
 import { ArchivosService } from '../archivos/archivos.service';
 
@@ -65,10 +67,16 @@ export class UserService {
       localStorage.removeItem('email');
     }
 
-    return this.http.post( url, user ).pipe( map( (resp:any)  => {
-      this.saveStorage( resp.id, resp.token, resp.usuario, resp.menu );      
-      return true;
-    }))
+    return this.http.post( url, user ).pipe(
+      map( (resp:any)  => {
+        this.saveStorage( resp.id, resp.token, resp.usuario, resp.menu );      
+        return true;
+      }),catchError( err => {
+        // console.log( err.error.mssg );
+        swal("Error Inicio de Sesión", err.error.mssg , "error");
+        return throwError( err )
+      })
+    )
 
   }
 
@@ -99,10 +107,16 @@ export class UserService {
   // create user
   createUser( user:User ) {
     var url = URL_SERVICES + '/usuario';
-    return this.http.post( url, user ).pipe( map( (resp: any) => {
-      swal("Usuario creado!", user.userMail , "success");
-      return resp.user;
-    }) )
+    return this.http.post( url, user ).pipe(
+      map( (resp: any) => {
+        swal("Usuario creado!", user.userMail , "success");
+        return resp.user;
+      }),catchError( err => {
+        console.log( err  );
+        swal(err.error.mssg, err.error.errors.message , "error");
+        return throwError( err )
+      })
+    )
   }
 
 
@@ -117,16 +131,20 @@ export class UserService {
       url = URL_SERVICES + '/usuario/' + user._id + '?token=' + this.token;
     }
 
-    return this.http.put( url, user ).pipe( map( (resp:any) => {
-
-      if ( user._id === this.usuario._id ) {
-        let userDb:User = resp;      
-        this.saveStorage( userDb._id, this.token, user, this.menu );
-      }
-      swal("Usuario actualizado!", user.userMail , "success");
-
-      return true;
-    }))
+    return this.http.put( url, user ).pipe(
+      map( (resp:any) => {
+        if ( user._id === this.usuario._id ) {
+          let userDb:User = resp;      
+          this.saveStorage( userDb._id, this.token, user, this.menu );
+        }
+        swal("Usuario actualizado!", user.userMail , "success");
+        return true;
+      }),catchError( err => {
+        console.log( err.error.mssg );
+        swal(err.error.mssg, err.error.errors.errors.message , "error");
+        return throwError( err )
+      })
+    )
   }
   updateUserImg( file:File, id: string ) {
     this._arch.uploadFile( file, 'users', id )
